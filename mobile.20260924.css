@@ -1,5 +1,55 @@
 /* Compact-phone refinements for the RU landing. */
-.mobile-contact-dock { display: none; }
+.mobile-contact-dock {
+  position: fixed;
+  z-index: 89;
+  right: 22px;
+  bottom: 78px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.contact-dock-caption {
+  padding: 12px 14px;
+  border: 1px solid #d1ff3540;
+  border-radius: 100px;
+  background: #172014ed;
+  color: #f2f2ed;
+  box-shadow: 0 8px 26px #0004;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+  backdrop-filter: blur(16px);
+}
+.mobile-contact-link {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  flex: none;
+  border: 1px solid #ffffff42;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 6px 20px #0007, 0 0 0 2px #101511aa;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.mobile-contact-link svg { display: block; width: 25px; height: 25px; }
+.mobile-contact-whatsapp { background: #168b46; }
+.mobile-contact-phone { background: #d1ff35; color: #18230c; }
+.mobile-contact-telegram { background: #1d91c9; }
+.mobile-contact-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px #0008, 0 0 0 3px #ffffff4d;
+}
+.mobile-contact-link:active { transform: scale(.92); }
+.mobile-contact-link:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.mobile-contact-link:focus-visible,
+.mobile-contact-link:hover { position: relative; z-index: 1; }
+@media (min-width: 701px) and (max-width: 1100px) {
+  .contact-dock-caption { display: none; }
+  .mobile-contact-dock { right: 12px; flex-direction: column; }
+}
 .hero-prototype-jump { display: none; }
 .case-category .cat-right {
   border-left: 0;
@@ -37,41 +87,16 @@
     pointer-events: auto;
   }
   .mobile-contact-dock {
-    position: fixed;
-    z-index: 89;
     right: max(12px, env(safe-area-inset-right));
     bottom: calc(12px + env(safe-area-inset-bottom));
-    display: flex;
-    align-items: center;
     gap: 7px;
   }
+  .contact-dock-caption { display: none; }
   .mobile-contact-link {
-    display: grid;
-    place-items: center;
     width: 48px;
     height: 48px;
-    flex: none;
-    border: 1px solid #ffffff42;
-    border-radius: 50%;
-    color: #fff;
-    box-shadow: 0 6px 20px #0007, 0 0 0 2px #101511aa;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    transition: transform .18s ease, box-shadow .18s ease;
   }
-  .mobile-contact-link svg {
-    display: block;
-    width: 25px;
-    height: 25px;
-  }
-  .mobile-contact-whatsapp { background: #168b46; }
-  .mobile-contact-phone { background: #d1ff35; color: #18230c; }
-  .mobile-contact-telegram { background: #1d91c9; }
-  .mobile-contact-link:active { transform: scale(.92); }
-  .mobile-contact-link:focus-visible {
-    outline: 3px solid #fff;
-    outline-offset: 4px;
-  }
+  .mobile-contact-link:hover { transform: none; box-shadow: 0 6px 20px #0007, 0 0 0 2px #101511aa; }
   #motion.mvp-scroll-section {
     height: auto !important;
   }
