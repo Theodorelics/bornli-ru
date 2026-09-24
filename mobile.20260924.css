@@ -1,5 +1,6 @@
 /* Compact-phone refinements for the RU landing. */
 .mobile-contact-dock { display: none; }
+.hero-prototype-jump { display: none; }
 .case-category .cat-right {
   border-left: 0;
   padding-left: 0;
@@ -9,6 +10,32 @@
 }
 
 @media (max-width: 700px) {
+  #hero-prototypes { scroll-margin-top: 74px; }
+  .hero-prototype-jump {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    min-height: 44px;
+    margin-top: 8px;
+    border-bottom: 1px solid currentColor;
+    color: #d1ff35;
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .hero-prototype-jump span { font-size: 23px; line-height: 1; }
+  .hero-prototype-jump:focus-visible { outline: 3px solid #d1ff35; outline-offset: 5px; }
+  body.bornli-v43 .hero-product-controls {
+    position: relative;
+    inset: auto;
+    order: -1;
+    margin-inline: auto;
+  }
+  #top.hero-assembling .hero-product-controls {
+    opacity: 1;
+    pointer-events: auto;
+  }
   .mobile-contact-dock {
     position: fixed;
     z-index: 89;
@@ -302,6 +329,16 @@
 
 @media (min-width: 701px) {
   .form-mode-toggle { display: none; }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .hero-stat:last-child b {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    font-size: clamp(20px, 2.8vw, 25px);
+    line-height: 1.08;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
