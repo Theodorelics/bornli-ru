@@ -4,4 +4,4 @@ Static Russian BORNLI landing published with GitHub Pages at `https://bornli.ru/
 
 The editable source is in the private `Theodorelics/forma-landing` repository, `new-landing` branch, `bornli/` directory. This repository contains only the public static export. The contact form submits to the existing Yandex Cloud endpoint. The AI examples run in offline demo mode on Pages; server-side AI is not hosted here.
 
-To update the site, copy the static files from `bornli/`, excluding `.vercel/`, `api/`, `eu/`, package files, `vercel.json`, and the English script. Preserve `CNAME` and `.nojekyll`.
+To update the site, copy shared static assets from `bornli/`, excluding `.vercel/`, `api/`, `eu/`, package files, `vercel.json`, and the English script. Publish the Russian `bornli/ru/index.html` as the root `index.html`; likewise copy Russian privacy, consent, prototypes, and agents to the root paths. Keep the old `/ru/` HTML files as redirects to the root and preserve `CNAME` and `.nojekyll`.
