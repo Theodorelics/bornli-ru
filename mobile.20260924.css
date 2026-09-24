@@ -1,4 +1,5 @@
 /* Compact-phone refinements for the RU landing. */
+.mobile-contact-dock { display: none; }
 .case-category .cat-right {
   border-left: 0;
   padding-left: 0;
@@ -8,6 +9,42 @@
 }
 
 @media (max-width: 700px) {
+  .mobile-contact-dock {
+    position: fixed;
+    z-index: 89;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .mobile-contact-link {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    flex: none;
+    border: 1px solid #ffffff42;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: 0 6px 20px #0007, 0 0 0 2px #101511aa;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .mobile-contact-link svg {
+    display: block;
+    width: 25px;
+    height: 25px;
+  }
+  .mobile-contact-whatsapp { background: #168b46; }
+  .mobile-contact-phone { background: #d1ff35; color: #18230c; }
+  .mobile-contact-telegram { background: #1d91c9; }
+  .mobile-contact-link:active { transform: scale(.92); }
+  .mobile-contact-link:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+  }
   #motion.mvp-scroll-section {
     height: auto !important;
   }
@@ -251,6 +288,9 @@
 }
 
 @media (max-width: 370px) {
+  .mobile-contact-dock { gap: 6px; }
+  .mobile-contact-link { width: 44px; height: 44px; }
+  .mobile-contact-link svg { width: 23px; height: 23px; }
   #motion .mvp-stage {
     padding-inline: 16px;
   }
@@ -265,6 +305,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .mobile-contact-link { transition: none; }
   .form-mode-toggle button { transition: none; }
   .process-row .process-visual { opacity: 1; transform: none; transition: none; }
 }
