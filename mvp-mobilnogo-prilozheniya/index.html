@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MVP мобильного приложения: что включить в первую версию — BORNLI</title><meta name="description" content="Как выбрать функции MVP мобильного приложения, отличить его от прототипа и подготовить задачу для оценки. Практический пример и чек-лист BORNLI.">
+<meta name="theme-color" content="#101714"><link rel="canonical" href="https://bornli.ru/mvp-mobilnogo-prilozheniya/">
+<meta property="og:type" content="article"><meta property="og:title" content="MVP мобильного приложения: что включить в первую версию — BORNLI">
+<meta property="og:description" content="Как выбрать функции MVP мобильного приложения, отличить его от прототипа и подготовить задачу для оценки. Практический пример и чек-лист BORNLI."><meta property="og:url" content="https://bornli.ru/mvp-mobilnogo-prilozheniya/">
+<meta property="og:image" content="https://bornli.ru/assets/case-navigator-instant.jpg"><meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/png" sizes="120x120" href="https://bornli.ru/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bornli.ru/apple-touch-icon.png">
+<link rel="preload" href="/assets/golos-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/golos-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/analytics.20260924.css"><script src="/analytics.20260924.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://bornli.ru/mvp-mobilnogo-prilozheniya/", "url": "https://bornli.ru/mvp-mobilnogo-prilozheniya/", "name": "MVP мобильного приложения: что включить в первую версию — BORNLI", "inLanguage": "ru-RU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BORNLI", "item": "https://bornli.ru/"}, {"@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://bornli.ru/guides/"}, {"@type": "ListItem", "position": 3, "name": "MVP мобильного приложения: что включить в первую версию — BORNLI", "item": "https://bornli.ru/mvp-mobilnogo-prilozheniya/"}]}, {"@type": "Article", "headline": "MVP мобильного приложения: что включить в первую версию — BORNLI", "datePublished": "2026-09-25", "dateModified": "2026-09-25", "author": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "publisher": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "mainEntityOfPage": "https://bornli.ru/mvp-mobilnogo-prilozheniya/", "image": "https://bornli.ru/assets/case-navigator-instant.jpg"}]}</script>
+<style>
+    @font-face{font-family:Golos;src:url('/assets/golos-regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:Golos;src:url('/assets/golos-bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    :root{color-scheme:dark;--bg:#101714;--paper:#e9eee8;--muted:#abb9ae;--line:#34443a;--accent:#d9f49e}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--paper);font:400 18px/1.6 Golos,Arial,sans-serif}
+    a{color:inherit}
+    .wrap{width:min(1200px,calc(100% - 56px));margin:auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:88px;border-bottom:1px solid var(--line)}
+    .brand{font-size:25px;font-weight:700;letter-spacing:-.09em;text-decoration:none;line-height:1}
+    .topbar nav{display:flex;gap:28px;align-items:center;font-size:14px}
+    .topbar nav a{text-decoration:none;color:var(--muted)}
+    .topbar nav a:hover,.crumbs a:hover{color:var(--paper)}
+    .pill{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 18px;border:1px solid var(--accent);border-radius:100px;color:#101714!important;background:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+    .pill:hover{background:#edfbcf}
+    .crumbs{padding:28px 0 0;font-size:13px;color:var(--muted)}
+    .crumbs a{text-decoration:none}
+    .hero{padding:88px 0 100px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:72px;align-items:end}
+    .eyebrow{margin:0 0 23px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:790px;font-size:clamp(52px,6.4vw,104px);line-height:.99;letter-spacing:-.078em;margin-bottom:28px}
+    .lead{max-width:650px;color:#c1cec4;font-size:clamp(19px,2vw,25px);line-height:1.4}
+    .hero-meta{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .price-card{background:#dcedc4;color:#122016;border-radius:26px;padding:32px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .price-card small{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+    .price-card strong{display:block;font-size:clamp(58px,5vw,85px);line-height:1;letter-spacing:-.075em}
+    .price-card p{font-size:15px;line-height:1.45;margin:0;max-width:345px}
+    main section{border-top:1px solid var(--line);padding:88px 0}
+    h2{font-size:clamp(36px,4.3vw,64px);line-height:1.08;letter-spacing:-.065em;max-width:820px;margin-bottom:30px}
+    h3{font-size:25px;line-height:1.2;letter-spacing:-.04em;margin-bottom:12px}
+    .intro{display:grid;grid-template-columns:1fr 1fr;gap:100px}
+    .intro p,.section-intro{color:#c0ccc2;max-width:680px}
+    .section-intro{font-size:20px;margin-bottom:42px}
+    .factors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .factor{background:#17221b;padding:30px;min-height:190px}
+    .factor span{display:block;color:var(--accent);font-size:12px;margin-bottom:25px}
+    .factor p{font-size:16px;color:#b5c2b8;margin:0;max-width:470px}
+    .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:42px}
+    .case{background:#1a261e;border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none}
+    .case img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#243129}
+    .case div{padding:24px 28px 30px}
+    .case small{display:block;color:var(--accent);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .case strong{font-size:25px;line-height:1.2;letter-spacing:-.03em}
+    .case p{margin:13px 0 0;color:#b5c2b8;font-size:15px}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px}
+    .step{padding:26px 24px;border:1px solid var(--line);border-radius:20px;min-height:235px}
+    .step:before{counter-increment:step;content:'0' counter(step);display:block;color:var(--accent);font-size:13px;margin-bottom:38px}
+    .step p{font-size:15px;color:#b5c2b8;margin:0}
+    .note{border-left:3px solid var(--accent);padding:12px 0 12px 25px;font-size:20px;max-width:780px;color:#cfdbd1}
+    .faq{max-width:860px}
+    .faq details{border-bottom:1px solid var(--line);padding:23px 0}
+    .faq summary{cursor:pointer;list-style:none;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-.03em;display:flex;justify-content:space-between;gap:20px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary:after{content:'+';color:var(--accent);font-size:26px;line-height:1}
+    .faq details[open] summary:after{content:'−'}
+    .faq p{color:#b5c2b8;max-width:710px;margin:16px 0 0;font-size:16px}
+    .cta{border-radius:26px;background:#dcedc4;color:#122016;padding:clamp(32px,6vw,80px);display:flex;align-items:end;justify-content:space-between;gap:40px}
+    .cta h2{margin:0;max-width:650px}
+    .cta p{font-size:16px;max-width:360px;margin:15px 0 20px}
+    .cta .pill{background:#14221a;color:#e9eee8!important;border-color:#14221a}
+    footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:50px 0;color:var(--muted);font-size:14px}
+    footer a{text-decoration:none}
+    footer nav{display:flex;gap:20px;flex-wrap:wrap}
+    footer button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;gap:36px;padding:65px 0}.price-card{min-height:250px}.intro{grid-template-columns:1fr;gap:10px}.steps{grid-template-columns:repeat(2,1fr)}.cta{display:block}.cta .pill{margin-top:15px}}
+    @media(max-width:600px){body{font-size:16px}.wrap{width:min(100% - 32px,1200px)}.topbar{min-height:70px}.topbar nav a:not(.pill){display:none}.topbar nav .pill{min-height:38px;padding:8px 13px;font-size:12px}h1{font-size:clamp(44px,11vw,65px)}main section{padding:66px 0}.factors,.case-grid,.steps{grid-template-columns:1fr}.factor,.step{min-height:0}.step:before{margin-bottom:20px}.case img{aspect-ratio:16/9}.cta{border-radius:20px}footer{display:block}footer nav{margin:18px 0}}
+
+.editorial-hero{display:block;padding:75px 0 70px}.editorial-hero h1{max-width:1080px}.editorial-hero .lead{max-width:820px}
+.scenario-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:35px 0 16px;border-radius:22px;overflow:hidden}
+.scenario-flow>div{padding:35px;background:#dcedc4;color:#122016}.scenario-flow span{display:block;font-size:12px;margin-bottom:30px}
+.scenario-flow strong{display:block;font-size:30px;letter-spacing:-.04em}.scenario-flow p{font-size:16px;margin:8px 0 0}
+.caption{font-size:13px;color:#adbcaf;margin-bottom:32px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:35px 0}
+.comparison>div{padding:30px;border:1px solid var(--line);border-radius:22px}li{margin-bottom:14px}.comparison p{font-size:15px;color:#adbcaf}
+.wide-case{display:block;max-width:850px}.brief-list{max-width:820px;padding-left:25px}.brief-list li{padding:10px 0}
+.guide-list{display:grid;grid-template-columns:1fr 1fr;gap:24px}.guide-card{display:block;text-decoration:none;border:1px solid var(--line);padding:35px;border-radius:24px;background:#17221b}
+.guide-card h2{font-size:36px}.guide-card p{color:#b5c2b8;font-size:17px}.guide-card:hover{border-color:var(--accent)}
+.related{display:flex;gap:22px;flex-wrap:wrap}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+@media(max-width:700px){.scenario-flow,.comparison,.guide-list{grid-template-columns:1fr}.editorial-hero{padding:52px 0}.comparison{gap:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header class="wrap topbar"><a class="brand" href="/" aria-label="BORNLI — главная">BORNLI</a><nav aria-label="Основная навигация"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a class="pill" href="/#contact">Обсудить проект ↗</a></nav></header>
+<div class="wrap crumbs"><a href="/">BORNLI</a> / <a href="/guides/">Материалы</a> / MVP мобильного приложения: что включить в первую версию</div>
+<main><div class="wrap hero editorial-hero"><p class="eyebrow">BORNLI / о разработке по делу</p><h1>MVP приложения. Что нужно первой версии.</h1><p class="lead">MVP — рабочая первая версия, в которой человек может решить основную задачу. Её состав начинается с одного сценария, а не со списка всех функций будущего продукта.</p>
+<div class="hero-meta">Редакция BORNLI · <time datetime="2026-09-25">2026-09-25</time></div></div>
+<section id="difference"><div class="wrap intro"><div><p class="eyebrow">Сначала различия</p><h2>Прототип показывает. MVP работает.</h2></div><div><p>В кликабельном прототипе можно пройти путь по экранам: выбрать услугу, нажать «Записаться», увидеть подтверждение. Но за ним может не быть реального расписания, сохранения записи и уведомления сотруднику.</p><p>В MVP основной сценарий выполняется по-настоящему. Данные сохраняются, ограничения проверяются, бизнес получает результат действия. При этом второстепенные функции ещё могут отсутствовать.</p><p>В BORNLI начинаем с <a href="/#contact">бесплатного прототипа</a>: после обсуждения задачи и получения материалов готовим его за 24 часа. Он помогает согласовать логику до договора. Разработку работающего продукта оцениваем отдельно.</p></div></div></section>
+<section id="scenario"><div class="wrap"><p class="eyebrow">Один полезный результат</p><h2>Опишите действие, ради которого приложение откроют.</h2><p class="section-intro">Например: «Ученик выбирает свободное время и записывается к инструктору без звонка администратору». Уже из этой фразы видно, что нужно первой версии.</p><div class="scenario-flow" aria-label="Пример пути пользователя"><div><span>01</span><strong>Выбрать</strong><p>Инструктор и свободное время</p></div><div><span>02</span><strong>Подтвердить</strong><p>Запись и проверка доступности</p></div><div><span>03</span><strong>Получить</strong><p>Сохранённая запись и её статус</p></div></div><p class="caption">Учебный пример состава MVP. Это не перечень функций или смета конкретного клиента.</p><p class="section-intro">Теперь проверьте путь с другой стороны: где сотрудник увидит запись, кто может её отменить и как освободится время. Если эти вопросы оставить на конец, «несколько простых экранов» могут потребовать отдельной системы управления.</p></div></section>
+<section id="scope"><div class="wrap"><p class="eyebrow">Граница первой версии</p><h2>Что оставить, а что отложить.</h2><div class="comparison"><div><span class="eyebrow">Нужно для сценария записи</span><ul><li>Актуальные свободные интервалы.</li><li>Данные для связи с учеником.</li><li>Подтверждение и сохранение записи.</li><li>Защита от записи двух людей на одно время.</li><li>Понятный способ изменить или отменить запись.</li><li>Доступ сотрудника к списку записей.</li></ul></div><div><span class="eyebrow">Можно рассмотреть позже</span><ul><li>Баллы и уровни программы лояльности.</li><li>Рекомендации на основе истории занятий.</li><li>Социальная лента и рейтинги.</li><li>Несколько вариантов оформления интерфейса.</li><li>Сложные отчёты, если для пилота достаточно выгрузки.</li></ul><p>Если какая-то из этих функций и есть причина выбрать ваш продукт, она перестаёт быть второстепенной. Приоритет зависит от проверяемой идеи.</p></div></div><p class="note">Нельзя откладывать безопасность данных, корректность платежей и обработку критических ошибок только потому, что это MVP.</p></div></section>
+<section id="criteria"><div class="wrap"><p class="eyebrow">До начала разработки</p><h2>Замените «всё должно работать» проверяемыми условиями.</h2><div class="factors"><article class="factor"><span>01 / Успех</span><h3>Что считать выполнением задачи</h3><p>После подтверждения запись появляется у ученика и сотрудника, а выбранное время становится недоступным другим людям.</p></article><article class="factor"><span>02 / Ошибка</span><h3>Что будет при сбое</h3><p>Если интернет пропал, приложение не показывает ложное подтверждение и позволяет проверить статус после восстановления связи.</p></article><article class="factor"><span>03 / Изменение</span><h3>Кто управляет отменами</h3><p>Заранее определены права ученика и сотрудника, ограничения по времени и то, какие уведомления нужны.</p></article><article class="factor"><span>04 / Наблюдение</span><h3>Как поймём, что продукт полезен</h3><p>Отслеживаем начатые и завершённые записи, причины ошибок и обратную связь участников пилота. Порог успеха согласуем до запуска.</p></article></div></div></section>
+<section id="budget"><div class="wrap intro"><div><p class="eyebrow">Бюджет и срок</p><h2>Меньше функций не всегда означает простой проект.</h2></div><div><p>Один экран может зависеть от расписания в сторонней системе, правил оплаты и разных прав сотрудников. Поэтому оцениваем не только интерфейс, но и данные, интеграции, тестирование и выпуск.</p><p>Разработка в BORNLI начинается от 300 000 ₽. Это нижняя граница, а не фиксированная цена любого MVP. В <a href="/stoimost-mobilnogo-prilozheniya/">разборе стоимости приложения</a> показываем, какие части задачи меняют смету.</p><p>30 дней — ориентир для типового проекта с согласованным объёмом и готовыми материалами. Сложные интеграции и отдельные кабинеты требуют своей оценки. Во время разработки показываем рабочую сборку каждую неделю.</p></div></div></section>
+<section id="example"><div class="wrap"><p class="eyebrow">Посмотреть интерфейс</p><h2>Как сценарий выглядит на экране.</h2><a class="case wide-case" href="/#case-navigator"><img src="/assets/case-navigator-instant.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Интерфейс приложения автошколы Навигатор: запись и расписание"><div><small>Навигатор / пример интерфейса</small><strong>Открыть проект на главной ↗</strong><p>Иллюстрация сценария записи. Учебный список функций выше не описывает полный состав этого проекта.</p></div></a></div></section>
+<section id="checklist"><div class="wrap"><p class="eyebrow">Можно скопировать в бриф</p><h2>Шесть вопросов перед оценкой.</h2><ol class="brief-list"><li><strong>Кто первый пользователь?</strong> Одна конкретная группа, к которой есть доступ для пилота.</li><li><strong>Какую задачу он решает?</strong> Действие с понятным началом и результатом.</li><li><strong>Как он решает её сейчас?</strong> Звонок, таблица, сайт или другое приложение.</li><li><strong>Какие данные и системы нужны?</strong> Расписание, каталог, CRM, оплата, роли сотрудников.</li><li><strong>Что обязательно к запуску?</strong> Функции без которых основной сценарий не завершится.</li><li><strong>Что покажет полезность?</strong> Согласованный показатель и обратная связь реальных пользователей.</li></ol><p class="section-intro">Ответов достаточно, чтобы начать обсуждение. Подробное техническое задание можно уточнить после прототипа, когда станет виден весь путь пользователя.</p></div></section>
+
+<section><div class="wrap cta"><div><p class="eyebrow" style="color:#33523a">От идеи к конкретике</p><h2>Покажем, как может работать ваш продукт.</h2></div><div><p>Обсудим задачу и материалы, затем подготовим бесплатный кликабельный прототип за 24 часа. До договора.</p><a class="pill" href="/#contact">Обсудить прототип ↗</a></div></div></section>
+</main><footer class="wrap"><a class="brand" href="/">BORNLI</a><nav aria-label="Ссылки внизу страницы"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a href="/privacy.html">Политика</a><button id="analytics-settings" type="button" aria-controls="analytics-consent" aria-expanded="false">Аналитика</button></nav></footer>
+  <aside class="analytics-consent" id="analytics-consent" role="region" aria-label="Настройки аналитики" hidden><strong>Аналитика сайта</strong><p>С вашего согласия подключим Яндекс Метрику, чтобы видеть посещения. Без согласия счётчик не загружается. Выбор можно изменить через «Аналитика» внизу страницы. <a href="/privacy.html">Подробнее</a></p><div class="analytics-actions"><button id="analytics-accept" type="button">Разрешить</button><button id="analytics-decline" type="button">Не разрешать</button></div></aside>
+</body></html>

@@ -1,0 +1,26 @@
+name: SEO health
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 6 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: seo-health-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Validate sitemap pages and internal links
+        run: python3 .github/scripts/seo_audit.py --site .
+      - name: Check public site on scheduled or manual runs
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python3 .github/scripts/seo_audit.py --live
