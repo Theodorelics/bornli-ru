@@ -1,0 +1,44 @@
+/* Russian project pricing. Static content: no additional JavaScript or media. */
+#process .pricing-intro { max-width: 390px; align-self: end; }
+#process .pricing-intro p { margin: 0 0 14px; color: #f0f2ed; font-size: 22px; line-height: 1.4; }
+#process .pricing-intro > span { color: #aab1bb; font-size: 15px; line-height: 1.6; }
+.project-pricing { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.pricing-card { display: flex; flex-direction: column; min-width: 0; padding: clamp(22px, 2.3vw, 38px); border: 1px solid #d1d8d22b; border-radius: 24px; background: #151c19; color: #f0f2ed; }
+.pricing-card-standard { border-color: #cfff3d; background: #cfff3d; color: #10180e; }
+.pricing-card h3 { margin: 0 0 22px; font-size: clamp(21px, 2vw, 28px); font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
+.pricing-amount { display: flex; align-items: baseline; gap: .18em; margin: 0; font-size: clamp(32px, 3.2vw, 52px); font-weight: 700; line-height: 1.08; letter-spacing: -.045em; white-space: nowrap; }
+.pricing-amount small { font-size: .4em; font-weight: 500; letter-spacing: 0; }
+.pricing-amount > span { font-size: .7em; }
+.pricing-description { margin: 22px 0 0; min-height: 4.5em; font-size: 16px; line-height: 1.5; color: #c1c9c1; }
+.pricing-card-standard .pricing-description { color: #34452b; }
+.pricing-card ul { list-style: none; padding: 22px 0 28px; margin: 22px 0 0; border-top: 1px solid #a7b1a72b; }
+.pricing-card li { position: relative; padding-left: 18px; margin: 0 0 12px; font-size: 14px; line-height: 1.5; }
+.pricing-card li::before { content: ''; position: absolute; top: .6em; left: 0; width: 5px; height: 5px; border-radius: 50%; background: #cfff3d; }
+.pricing-card-standard ul { border-color: #17271030; }
+.pricing-card-standard li::before { background: #243719; }
+.pricing-cta { display: flex; justify-content: space-between; align-items: center; gap: 14px; min-height: 50px; padding: 13px 17px; margin-top: auto; border: 1px solid #c2cbbd70; border-radius: 12px; color: inherit; font-size: 14px; line-height: 1.4; font-weight: 600; text-decoration: none; }
+.pricing-card-standard .pricing-cta { background: #10180e; border-color: #10180e; color: #f0f2ed; }
+.pricing-cta svg { width: 20px; height: 20px; flex: 0 0 20px; }
+.pricing-cta:hover { border-color: currentColor; }
+.pricing-cta:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.pricing-card-standard .pricing-cta:focus-visible { outline-color: #10180e; }
+.pricing-scope-note { margin: 22px 0 54px; max-width: 900px; font-size: 14px; line-height: 1.65; color: #b3bcb5; }
+@media (max-width: 1000px) {
+  .project-pricing { gap: 12px; }
+  .pricing-card { padding: 22px; }
+  .pricing-amount { font-size: 34px; }
+  .pricing-description { font-size: 15px; min-height: 6em; }
+}
+@media (max-width: 760px) {
+  #process .pricing-intro { max-width: none; align-self: stretch; }
+  #process .pricing-intro p { font-size: 19px; }
+  .project-pricing { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  .pricing-card { padding: 24px; border-radius: 20px; }
+  .pricing-card h3 { margin-bottom: 16px; font-size: 24px; }
+  .pricing-amount { font-size: clamp(36px, 10vw, 48px); }
+  .pricing-description { min-height: 0; margin-top: 18px; font-size: 16px; }
+  .pricing-card ul { margin-top: 20px; padding-bottom: 12px; }
+  .pricing-card li { font-size: 15px; }
+  .pricing-cta { margin-top: 12px; }
+  .pricing-scope-note { margin-bottom: 40px; font-size: 13px; }
+}
