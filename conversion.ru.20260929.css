@@ -1,0 +1,58 @@
+/* RU paid-search path: a clear scope, proof labels and optional reference work. */
+.ru-project-scope{width:100%;max-width:none;margin:0;padding:100px var(--pad,40px);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(36px,7vw,110px);background:#edf0e4;color:#172219;scroll-margin-top:96px}
+.ru-project-scope-heading>p:first-child{color:#172219;font-size:20px;margin:0 0 18px;font-weight:600}
+.ru-project-scope-heading h2{font-size:clamp(48px,5.8vw,84px);line-height:1.05;letter-spacing:-.055em;margin:0;white-space:nowrap}
+.ru-project-scope-heading h2 span{font-size:.72em}
+.ru-project-scope-intro{font-size:clamp(19px,2vw,25px);line-height:1.45;margin:25px 0 0;max-width:390px}
+.ru-project-scope-content h3{margin:0 0 23px;font-size:clamp(23px,2.2vw,30px);letter-spacing:-.025em;line-height:1.2}
+.ru-project-scope-content ul{list-style:none;margin:0;padding:0}
+.ru-project-scope-content li{padding:16px 0;border-top:1px solid #aeb8a5;display:grid;gap:5px}
+.ru-project-scope-content li strong{display:block;margin:0;color:#172219;font-size:17px;font-weight:600;line-height:1.35;letter-spacing:normal}
+.ru-project-scope-content li span{color:#53604e;font-size:15px;line-height:1.45}
+.ru-project-scope-terms{font-size:14px;line-height:1.65;color:#4a5645;margin:22px 0}
+.ru-project-scope-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ru-project-scope-actions>.button{font-size:15px;white-space:normal;text-align:center}
+.ru-project-scope-actions>a:not(.button){color:#253420;font-size:14px;text-decoration:underline;text-underline-offset:4px;line-height:1.5}
+.ru-project-scope-next{max-width:540px;font-size:13px;line-height:1.65;color:#52604a;margin:18px 0 0}
+.work-scope-note,.reference-intro{max-width:410px;font-size:17px;line-height:1.6;margin:12px 0 0;color:#535d4a;align-self:end}
+.case-proof-label{width:fit-content;max-width:100%;margin:0 0 18px;padding:7px 11px;border:1px solid currentColor;border-radius:7px;font-size:12px;line-height:1.4;font-weight:600;color:#24341d}
+#hero-partners{height:auto;min-height:0;display:flex;flex-direction:column;gap:14px;padding-bottom:25px}
+#hero-partners .partners-window{width:100%}
+#hero-partners .partners-description{position:static;display:block;width:auto;height:auto;max-width:900px;margin:0 auto;padding:0 60px;clip:auto;overflow:visible;white-space:normal;text-align:center;font-size:14px;line-height:1.5;color:#b5beb5}
+.reference-gallery{background:#edf0e4;color:#172219}
+.reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 38px;margin-top:35px}
+.reference-example{display:flex;align-items:flex-start;gap:16px;padding:28px 0;border-top:1px solid #afb9a7;scroll-margin-top:110px;min-width:0}
+.reference-example>img{width:56px;height:56px;border-radius:13px;object-fit:cover;flex:0 0 56px}
+.reference-example>div{min-width:0}
+.reference-category{font-size:11px;line-height:1.5;color:#65715d;margin:0 0 8px}
+.reference-example h3{font-size:25px;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}
+.reference-example h3+p{font-size:14px;line-height:1.6;color:#56634e;margin:0 0 18px}
+.reference-example button{display:block;background:none;color:#1c2d17;padding:0;min-height:35px;text-align:left;font-family:inherit;font-weight:600;font-size:14px;line-height:1.5;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.reference-source{display:block;font-size:12px;line-height:1.5;color:#5e6c57;margin-top:10px;text-decoration:underline;text-underline-offset:3px}
+.reference-example button:focus-visible,.reference-source:focus-visible,.ru-project-scope-actions a:focus-visible{outline:3px solid #3b6130;outline-offset:5px}
+.site-footer{background:var(--lime,#d4ff38);color:#172219;padding-top:30px;padding-bottom:40px}
+.site-footer .footer-bar{margin-top:0;padding-top:0;border-top:0}
+/* Editorial controls are not part of the enquiry journey. Their dialog remains for the existing runtime. */
+.lab-launcher{display:none!important}
+@media(max-width:1000px){.ru-project-scope{gap:40px}.reference-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 25px}}
+@media(max-width:700px){
+ .ru-project-scope{grid-template-columns:1fr;gap:35px;padding-top:48px;padding-bottom:48px}
+ .ru-project-scope-heading>p:first-child{font-size:18px;margin-bottom:14px}
+ .ru-project-scope-heading h2{font-size:clamp(45px,12vw,66px)}
+ .ru-project-scope-intro{font-size:20px;line-height:1.45;margin-top:18px;max-width:100%}
+ .ru-project-scope-content h3{font-size:24px;margin-bottom:20px}
+ .ru-project-scope-content li{padding:13px 0}
+ .ru-project-scope-content li strong{font-size:16px}
+ .ru-project-scope-content li span{font-size:14px}
+ .ru-project-scope-actions{align-items:stretch;flex-direction:column;gap:17px}
+ .ru-project-scope-actions>.button{width:100%;justify-content:center}
+ .ru-project-scope-actions>a:not(.button){text-align:center}
+ .work-scope-note,.reference-intro{font-size:15px;line-height:1.55;max-width:100%;margin-top:20px}
+ .case-proof-label{font-size:11px;margin-bottom:14px;padding:6px 9px}
+ #hero-partners .partners-description{padding:0 28px;font-size:13px}
+ .reference-grid{grid-template-columns:1fr;margin-top:28px}
+ .reference-example{padding:24px 0;gap:17px}
+ .reference-example h3{font-size:26px}
+ .reference-example h3+p{font-size:15px}
+ .site-footer{padding-top:28px;padding-bottom:110px}
+}
