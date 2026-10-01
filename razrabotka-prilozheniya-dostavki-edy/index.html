@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Разработка приложения для доставки еды — BORNLI</title><meta name="description" content="Что нужно приложению доставки еды: меню, корзина, оплата, статусы и интеграции. Модельный сценарий, открытый прототип AVIOKI и ориентир стоимости BORNLI.">
+<meta name="theme-color" content="#101714"><link rel="canonical" href="https://bornli.ru/razrabotka-prilozheniya-dostavki-edy/">
+<meta property="og:type" content="article"><meta property="og:title" content="Разработка приложения для доставки еды — BORNLI">
+<meta property="og:description" content="Что нужно приложению доставки еды: меню, корзина, оплата, статусы и интеграции. Модельный сценарий, открытый прототип AVIOKI и ориентир стоимости BORNLI."><meta property="og:url" content="https://bornli.ru/razrabotka-prilozheniya-dostavki-edy/">
+<meta property="og:image" content="https://bornli.ru/assets/avioki-screen.png"><meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/png" sizes="120x120" href="https://bornli.ru/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bornli.ru/apple-touch-icon.png">
+<link rel="preload" href="/assets/golos-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/golos-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/analytics.20260924.css"><script src="/analytics.20260924.js?v=funnel1" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://bornli.ru/razrabotka-prilozheniya-dostavki-edy/", "url": "https://bornli.ru/razrabotka-prilozheniya-dostavki-edy/", "name": "Разработка приложения для доставки еды — BORNLI", "inLanguage": "ru-RU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BORNLI", "item": "https://bornli.ru/"}, {"@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://bornli.ru/guides/"}, {"@type": "ListItem", "position": 3, "name": "Разработка приложения для доставки еды — BORNLI", "item": "https://bornli.ru/razrabotka-prilozheniya-dostavki-edy/"}]}, {"@type": "Article", "headline": "Разработка приложения для доставки еды — BORNLI", "datePublished": "2026-10-01", "dateModified": "2026-10-01", "author": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "publisher": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "mainEntityOfPage": "https://bornli.ru/razrabotka-prilozheniya-dostavki-edy/", "image": "https://bornli.ru/assets/avioki-screen.png"}]}</script>
+<style>
+    @font-face{font-family:Golos;src:url('/assets/golos-regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:Golos;src:url('/assets/golos-bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    :root{color-scheme:dark;--bg:#101714;--paper:#e9eee8;--muted:#abb9ae;--line:#34443a;--accent:#d9f49e}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--paper);font:400 18px/1.6 Golos,Arial,sans-serif}
+    a{color:inherit}
+    .wrap{width:min(1200px,calc(100% - 56px));margin:auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:88px;border-bottom:1px solid var(--line)}
+    .brand{font-size:25px;font-weight:700;letter-spacing:-.09em;text-decoration:none;line-height:1}
+    .topbar nav{display:flex;gap:28px;align-items:center;font-size:14px}
+    .topbar nav a{text-decoration:none;color:var(--muted)}
+    .topbar nav a:hover,.crumbs a:hover{color:var(--paper)}
+    .pill{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 18px;border:1px solid var(--accent);border-radius:100px;color:#101714!important;background:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+    .pill:hover{background:#edfbcf}
+    .crumbs{padding:28px 0 0;font-size:13px;color:var(--muted)}
+    .crumbs a{text-decoration:none}
+    .hero{padding:88px 0 100px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:72px;align-items:end}
+    .eyebrow{margin:0 0 23px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:790px;font-size:clamp(52px,6.4vw,104px);line-height:.99;letter-spacing:-.078em;margin-bottom:28px}
+    .lead{max-width:650px;color:#c1cec4;font-size:clamp(19px,2vw,25px);line-height:1.4}
+    .hero-meta{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .price-card{background:#dcedc4;color:#122016;border-radius:26px;padding:32px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .price-card small{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+    .price-card strong{display:block;font-size:clamp(58px,5vw,85px);line-height:1;letter-spacing:-.075em}
+    .price-card p{font-size:15px;line-height:1.45;margin:0;max-width:345px}
+    main section{border-top:1px solid var(--line);padding:88px 0}
+    h2{font-size:clamp(36px,4.3vw,64px);line-height:1.08;letter-spacing:-.065em;max-width:820px;margin-bottom:30px}
+    h3{font-size:25px;line-height:1.2;letter-spacing:-.04em;margin-bottom:12px}
+    .intro{display:grid;grid-template-columns:1fr 1fr;gap:100px}
+    .intro p,.section-intro{color:#c0ccc2;max-width:680px}
+    .section-intro{font-size:20px;margin-bottom:42px}
+    .factors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .factor{background:#17221b;padding:30px;min-height:190px}
+    .factor span{display:block;color:var(--accent);font-size:12px;margin-bottom:25px}
+    .factor p{font-size:16px;color:#b5c2b8;margin:0;max-width:470px}
+    .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:42px}
+    .case{background:#1a261e;border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none}
+    .case img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#243129}
+    .case div{padding:24px 28px 30px}
+    .case small{display:block;color:var(--accent);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .case strong{font-size:25px;line-height:1.2;letter-spacing:-.03em}
+    .case p{margin:13px 0 0;color:#b5c2b8;font-size:15px}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px}
+    .step{padding:26px 24px;border:1px solid var(--line);border-radius:20px;min-height:235px}
+    .step:before{counter-increment:step;content:'0' counter(step);display:block;color:var(--accent);font-size:13px;margin-bottom:38px}
+    .step p{font-size:15px;color:#b5c2b8;margin:0}
+    .note{border-left:3px solid var(--accent);padding:12px 0 12px 25px;font-size:20px;max-width:780px;color:#cfdbd1}
+    .faq{max-width:860px}
+    .faq details{border-bottom:1px solid var(--line);padding:23px 0}
+    .faq summary{cursor:pointer;list-style:none;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-.03em;display:flex;justify-content:space-between;gap:20px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary:after{content:'+';color:var(--accent);font-size:26px;line-height:1}
+    .faq details[open] summary:after{content:'−'}
+    .faq p{color:#b5c2b8;max-width:710px;margin:16px 0 0;font-size:16px}
+    .cta{border-radius:26px;background:#dcedc4;color:#122016;padding:clamp(32px,6vw,80px);display:flex;align-items:end;justify-content:space-between;gap:40px}
+    .cta h2{margin:0;max-width:650px}
+    .cta p{font-size:16px;max-width:360px;margin:15px 0 20px}
+    .cta .pill{background:#14221a;color:#e9eee8!important;border-color:#14221a}
+    footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:50px 0;color:var(--muted);font-size:14px}
+    footer a{text-decoration:none}
+    footer nav{display:flex;gap:20px;flex-wrap:wrap}
+    footer button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;gap:36px;padding:65px 0}.price-card{min-height:250px}.intro{grid-template-columns:1fr;gap:10px}.steps{grid-template-columns:repeat(2,1fr)}.cta{display:block}.cta .pill{margin-top:15px}}
+    @media(max-width:600px){body{font-size:16px}.wrap{width:min(100% - 32px,1200px)}.topbar{min-height:70px}.topbar nav a:not(.pill){display:none}.topbar nav .pill{min-height:38px;padding:8px 13px;font-size:12px}h1{font-size:clamp(44px,11vw,65px)}main section{padding:66px 0}.factors,.case-grid,.steps{grid-template-columns:1fr}.factor,.step{min-height:0}.step:before{margin-bottom:20px}.case img{aspect-ratio:16/9}.cta{border-radius:20px}footer{display:block}footer nav{margin:18px 0}}
+
+.editorial-hero{display:block;padding:75px 0 70px}.editorial-hero h1{max-width:1080px}.editorial-hero .lead{max-width:820px}
+.scenario-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:35px 0 16px;border-radius:22px;overflow:hidden}
+.scenario-flow>div{padding:35px;background:#dcedc4;color:#122016}.scenario-flow span{display:block;font-size:12px;margin-bottom:30px}
+.scenario-flow strong{display:block;font-size:30px;letter-spacing:-.04em}.scenario-flow p{font-size:16px;margin:8px 0 0}
+.caption{font-size:13px;color:#adbcaf;margin-bottom:32px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:35px 0}
+.comparison>div{padding:30px;border:1px solid var(--line);border-radius:22px}li{margin-bottom:14px}.comparison p{font-size:15px;color:#adbcaf}
+.wide-case{display:block;max-width:850px}.brief-list{max-width:820px;padding-left:25px}.brief-list li{padding:10px 0}
+.guide-list{display:grid;grid-template-columns:1fr 1fr;gap:24px}.guide-card{display:block;text-decoration:none;border:1px solid var(--line);padding:35px;border-radius:24px;background:#17221b}
+.guide-card h2{font-size:36px}.guide-card p{color:#b5c2b8;font-size:17px}.guide-card:hover{border-color:var(--accent)}
+.related{display:flex;gap:22px;flex-wrap:wrap}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+@media(max-width:700px){.scenario-flow,.comparison,.guide-list{grid-template-columns:1fr}.editorial-hero{padding:52px 0}.comparison{gap:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header class="wrap topbar"><a class="brand" href="/" aria-label="BORNLI — главная">BORNLI</a><nav aria-label="Основная навигация"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a class="pill" href="/#contact">Обсудить проект ↗</a></nav></header>
+<div class="wrap crumbs"><a href="/">BORNLI</a> / <a href="/guides/">Материалы</a> / Разработка приложения для доставки еды</div>
+<main><div class="wrap hero editorial-hero"><p class="eyebrow">BORNLI / о разработке по делу</p><h1>Приложение для доставки еды: от меню до принятого заказа.</h1><p class="lead">Разбираем состав первой версии, зависимости от кассы и доставки и показываем, как проверить путь заказа на интерактивном прототипе.</p>
+<div class="hero-meta">Редакция BORNLI · <time datetime="2026-10-01">2026-10-01</time></div></div>
+<section id="task"><div class="wrap intro"><div><p class="eyebrow">Приложение для доставки еды</p><h2>Заказ должен дойти от меню до кухни.</h2></div><div><p>Покупатель выбирает блюда, видит итоговую стоимость, указывает адрес и получает понятный статус заказа. Для ресторана за этими экранами стоят актуальное меню, зоны доставки, способы оплаты и передача заказа команде. Если один из этих шагов остаётся ручным, состав приложения и смета будут другими.</p><p>Начинаем с карты действующего процесса: откуда берутся блюда и остатки, куда приходит заказ, кто меняет статус и как решаются отмены. Затем выбираем, что нужно в первой версии для одной точки или сети.</p></div></div></section>
+<section id="scenario"><div class="wrap"><p class="eyebrow">Модельный сценарий</p><h2>Один заказ, три стороны.</h2><p class="section-intro">Это собирательный пример для обсуждения продукта, а не описание клиента BORNLI, запущенного сервиса или результатов проекта.</p><div class="scenario-flow" aria-label="Модельный путь заказа"><div><span>01 / Гость</span><strong>Выбирает</strong><p>Блюда, способ получения и время</p></div><div><span>02 / Ресторан</span><strong>Принимает</strong><p>Проверенный заказ и передаёт его на кухню</p></div><div><span>03 / Доставка</span><strong>Обновляет</strong><p>Статус, который видит гость</p></div></div><p class="caption">Модельный сценарий. Реальные роли и последовательность уточняются для каждого бизнеса.</p><div class="factors"><article class="factor"><span>01 / Меню</span><h3>Где хранятся цены и доступность?</h3><p>Если каталог уже ведётся в кассовой системе, сначала проверяем обмен данными. Ручное дублирование меню в приложении создаёт риск расхождения цен и стоп-листа.</p></article><article class="factor"><span>02 / Заказ</span><h3>Кто получает и подтверждает заказ?</h3><p>Нужен понятный маршрут для нового заказа, изменения состава, отмены и возврата. Экран «заказ принят» должен показывать фактический статус.</p></article><article class="factor"><span>03 / Оплата</span><h3>Когда списываются деньги?</h3><p>Онлайн-оплата, оплата при получении и бонусы меняют логику оформления. Провайдера платежей и правила возврата выбираем по вашему процессу.</p></article><article class="factor"><span>04 / География</span><h3>Как рассчитывается доставка?</h3><p>Зоны, минимальная сумма, стоимость и ожидаемое время должны совпадать с правилами ресторана. Для сети потребуется выбор точки и распределение заказов.</p></article></div></div></section>
+<section id="prototype"><div class="wrap intro"><div><p class="eyebrow">Посмотреть до разработки</p><h2>Проверьте путь заказа в прототипе AVIOKI.</h2></div><div><p>В открытом интерактивном прототипе AVIOKI можно пройти меню и поиск, карточку блюда, корзину, оформление, экран принятого заказа и отслеживание. Там есть тестовые цены и тестовые заказы. Прототип показывает интерфейс и переходы; реальная оплата и доставка в нём не работают.</p><p><a href="/prototypes/avioki/">Открыть интерактивный прототип AVIOKI ↗</a></p><a href="/prototypes/avioki/" aria-label="Посмотреть прототип AVIOKI"><img src="/assets/avioki-screen.png" width="390" height="844" loading="lazy" decoding="async" style="display:block;width:min(100%,390px);height:auto;border-radius:25px" alt="Экран интерактивного прототипа AVIOKI с меню суши"></a><p class="caption">AVIOKI — демонстрационный прототип, не опубликованное приложение доставки.</p></div></div></section>
+<section id="release"><div class="wrap"><p class="eyebrow">Состав первой версии</p><h2>Сначала рабочий заказ, затем удержание.</h2><div class="comparison"><div><span class="eyebrow">Обсудить для запуска</span><ul><li>Каталог, карточка блюда и доступность позиций.</li><li>Корзина, адрес или самовывоз, расчёт доставки.</li><li>Передача заказа ресторану и реальные статусы.</li><li>Оплата, подтверждение и обработка ошибки.</li><li>Кабинет или интеграция для сотрудников.</li></ul></div><div><span class="eyebrow">Добавлять по задаче</span><ul><li>Бонусная программа и персональные предложения.</li><li>Повтор заказа и сохранённые предпочтения.</li><li>Несколько брендов, точек и отдельных меню.</li><li>Собственные курьеры, диспетчеризация и маршруты.</li><li>Глубокая аналитика и интеграции с CRM.</li></ul><p>Функция из второго списка может быть обязательной именно для вашего бизнеса. Границу первой версии определяем после разбора процесса.</p></div></div><p>Если задача пока звучит как «приложение для доставки», полезно сначала выбрать один проверяемый путь. <a href="/mvp-mobilnogo-prilozheniya/">Разбор MVP</a> поможет отличить рабочую первую версию от кликабельного прототипа.</p></div></section>
+<section id="acceptance"><div class="wrap"><p class="eyebrow">Приёмка интеграций</p><h2>Проверьте один заказ во всех системах.</h2><p class="section-intro">Ниже — модельный план приёмки рабочей версии приложения доставки. Это предлагаемые проверки для будущего проекта, не описание возможностей прототипа AVIOKI или результатов BORNLI. Сценарии и ожидаемое поведение согласовывают до разработки.</p><ol class="brief-list"><li><strong>Блюдо исчезло из меню, пока гость собирал корзину.</strong> Перед подтверждением заказа приложение заново проверяет доступность и цену. Изменение видно гостю; замена блюда или новая сумма требуют его подтверждения.</li><li><strong>Гость дважды нажал «Заказать» или повторил действие после обрыва связи.</strong> В системе ресторана появляется один заказ. В приложении и у сотрудника совпадают его номер, состав и итоговая сумма.</li><li><strong>Платёж подтверждён, но ответ не дошёл до приложения.</strong> После восстановления связи приложение уточняет статус уже начатой оплаты. Гость видит, что происходит; повторная попытка не должна приводить к повторному списанию за тот же заказ.</li><li><strong>Система ресторана временно недоступна.</strong> Приложение не сообщает «заказ принят рестораном» без подтверждения. До запуска выбирают поведение: ожидание, уведомление сотруднику или остановка оформления. Проверяют и восстановление связи — потерянных и повторных заказов быть не должно.</li><li><strong>Заказ отменён после оплаты.</strong> Отмена заказа и возврат денег отображаются отдельными состояниями. Сотрудник видит, кто запустил возврат и чем он завершился; гость получает соответствующий фактическому состоянию статус.</li></ol><p>Для каждой проверки в тестовой среде фиксируют номер заказа, исходные данные, ожидаемый и фактический результат в приложении, системе ресторана и платёжном кабинете. Назначают ответственного за разбор расхождений. Такой список помогает заранее определить, что именно команда должна показать при сдаче интеграции.</p></div></section>
+<section id="budget"><div class="wrap intro"><div><p class="eyebrow">Стоимость и срок</p><h2>Цена зависит от того, что уже работает за приложением.</h2></div><div><p>Разработка мобильного приложения в BORNLI начинается от 300 000 ₽. Это нижняя граница для оценки, а не фиксированная цена сервиса доставки. Сумму меняют количество точек, интеграция с кассой, платежи, кабинеты сотрудников и логика курьеров.</p><p>Для типового согласованного объёма ориентир — 30 дней. Срок сервиса с несколькими системами и ролями определяем после проверки данных и интеграций. <a href="/stoimost-mobilnogo-prilozheniya/">Подробнее о составе сметы</a>.</p><p>После обсуждения задачи и получения материалов BORNLI готовит бесплатный кликабельный прототип за 24 часа, до договора. На нём можно согласовать основной путь заказа прежде, чем оценивать рабочую систему.</p></div></div></section>
+<section id="brief"><div class="wrap"><p class="eyebrow">Перед оценкой</p><h2>Пять ответов помогут быстро собрать прототип.</h2><ol class="brief-list"><li><strong>Формат.</strong> Одна точка, сеть или несколько брендов?</li><li><strong>Меню.</strong> Где сейчас живут цены и стоп-лист?</li><li><strong>Заказ.</strong> Куда он приходит и кто меняет статус?</li><li><strong>Оплата.</strong> Какие способы нужны, кто делает возвраты?</li><li><strong>Доставка.</strong> Свои курьеры, агрегатор или только самовывоз?</li></ol><p class="section-intro">Если ответы пока не оформлены в ТЗ, можно разобрать их вместе на первой встрече.</p></div></section>
+
+<section><div class="wrap cta"><div><p class="eyebrow" style="color:#33523a">От идеи к конкретике</p><h2>Покажем, как может работать ваш продукт.</h2></div><div><p>Обсудим задачу и материалы, затем подготовим бесплатный кликабельный прототип за 24 часа. До договора.</p><a class="pill" href="/#contact">Обсудить прототип ↗</a></div></div></section>
+</main><footer class="wrap"><a class="brand" href="/">BORNLI</a><nav aria-label="Ссылки внизу страницы"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a href="/privacy.html">Политика</a><button id="analytics-settings" type="button" aria-controls="analytics-consent" aria-expanded="false">Аналитика</button></nav></footer>
+  <aside class="analytics-consent" id="analytics-consent" role="region" aria-label="Настройки аналитики" hidden><strong>Аналитика сайта</strong><p>С вашего согласия подключим Яндекс Метрику, чтобы видеть посещения. Без согласия счётчик не загружается. Выбор можно изменить через «Аналитика» внизу страницы. <a href="/privacy.html">Подробнее</a></p><div class="analytics-actions"><button id="analytics-accept" type="button">Разрешить</button><button id="analytics-decline" type="button">Не разрешать</button></div></aside>
+</body></html>
