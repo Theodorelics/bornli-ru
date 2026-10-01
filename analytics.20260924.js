@@ -60,6 +60,11 @@
   const panel = doc.getElementById('analytics-consent');
   const settings = doc.getElementById('analytics-settings');
   let loaded = false, clientId = '';
+  const clientIdWaiters = new Set();
+  function finishClientIdWaiters() {
+    clientIdWaiters.forEach(finish => finish());
+    clientIdWaiters.clear();
+  }
   function loadMetrica() {
     if (choice !== 'yes' || isTest || loaded) return;
     loaded = true;
@@ -73,7 +78,10 @@
     }
     root.ym(counterId, 'init', {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false});
     root.ym(counterId, 'getClientID', value => {
-      if (choice === 'yes' && /^\d{1,30}$/.test(String(value || ''))) clientId = String(value);
+      if (choice === 'yes' && /^\d{1,30}$/.test(String(value || ''))) {
+        clientId = String(value);
+        finishClientIdWaiters();
+      }
     });
   }
   function emit(event, properties = {}) {
@@ -140,7 +148,7 @@
     choice = value === 'yes' ? 'yes' : 'no';
     write(storageKey, choice); hidePanel();
     if (choice === 'yes') { rememberAttribution(); loadMetrica(); startViewTracking(); }
-    else { clientId = ''; stopViewTracking(); previousCampaign = null; remove(attributionKey); if (wasAccepted && !isTest) root.location.reload(); }
+    else { clientId = ''; finishClientIdWaiters(); stopViewTracking(); previousCampaign = null; remove(attributionKey); if (wasAccepted && !isTest) root.location.reload(); }
     const formChoice = doc.getElementById('lead-measurement-consent');
     if (formChoice) formChoice.checked = choice === 'yes';
   }
@@ -149,8 +157,32 @@
   settings?.addEventListener('click', () => panel?.hidden ? showPanel() : hidePanel());
   const formChoice = doc.getElementById('lead-measurement-consent');
   if (formChoice) {
-    formChoice.checked = choice === 'yes';
-    formChoice.addEventListener('change', () => setChoice(formChoice.checked ? 'yes' : 'no'));
+    // A new visitor confirms this visible default by submitting the form.
+    // A saved refusal always wins. Merely rendering the default loads no tag.
+    formChoice.checked = choice !== 'no';
+    formChoice.addEventListener('change', () => {
+      if (!formChoice.checked) setChoice('no');
+      // Checking is a form preference; submission confirms the permission.
+    });
+  }
+  async function prepareFormMeasurement() {
+    if (formChoice && formChoice.checked !== (choice === 'yes')) {
+      setChoice(formChoice.checked ? 'yes' : 'no');
+    }
+    if (choice !== 'yes' || isTest || clientId) return clientId;
+    // Let the official counter supply its identity before the server receives
+    // the lead. A blocked or slow counter must never prevent an enquiry.
+    try { loadMetrica(); } catch { return ''; }
+    return new Promise(resolve => {
+      let timer;
+      const finish = () => {
+        root.clearTimeout(timer);
+        clientIdWaiters.delete(finish);
+        resolve(choice === 'yes' ? clientId : '');
+      };
+      clientIdWaiters.add(finish);
+      timer = root.setTimeout(finish, 1500);
+    });
   }
   root.addEventListener('bornli:lead-confirmed', () => emit('lead_submitted'));
   doc.addEventListener('DOMContentLoaded', startViewTracking);
@@ -172,14 +204,14 @@
   doc.addEventListener('click', event => {
     if (event.target.closest?.('.lead-another')) {
       started = false;
-      if (formChoice) formChoice.checked = choice === 'yes';
+      if (formChoice) formChoice.checked = choice !== 'no';
     }
     if (event.target.closest?.('[data-track-primary-cta="hero"]')) emit('primary_cta_click');
     const link = event.target.closest?.('a[href]');
     if (link?.href.startsWith('tel:')) emit('contact_phone_click');
     // Telegram / WhatsApp use the existing native messenger goals in this counter.
   });
-  root.BORNLIAnalytics = {emit, isTest, getAttribution, getConsent: () => choice === 'yes',
+  root.BORNLIAnalytics = {emit, isTest, getAttribution, prepareFormMeasurement, getConsent: () => choice === 'yes',
     getConsentState: () => choice === 'yes' ? 'granted' : choice === 'no' ? 'denied' : 'unknown',
     getClientID: () => choice === 'yes' && !isTest ? clientId : '', counterId};
   rememberAttribution();
