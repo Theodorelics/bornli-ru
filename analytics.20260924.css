@@ -7,3 +7,9 @@
 .analytics-actions button:focus-visible,#analytics-settings:focus-visible{outline:3px solid #d4ff38;outline-offset:3px}
 .footer-bar #analytics-settings{background:none;border:0;padding:0;color:inherit;cursor:pointer;font:inherit;text-decoration:none}
 @media(max-width:600px){.analytics-consent{right:14px;bottom:14px;padding:18px;width:calc(100vw - 28px)}}
+
+#brief-form .lead-submission-notice{margin:12px 0 16px;font-size:11px;line-height:1.55;font-weight:400;color:inherit;opacity:.85}
+#brief-form .lead-submission-notice a,#brief-form .lead-submission-notice button{color:inherit;font:inherit;text-decoration:underline;text-underline-offset:2px}
+#brief-form .lead-submission-notice button{display:inline;background:none;border:0;border-radius:0;padding:0;cursor:pointer;min-height:24px}
+#brief-form .lead-submission-notice button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+#brief-form .lead-submission-notice [hidden]{display:none!important}

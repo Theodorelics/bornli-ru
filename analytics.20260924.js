@@ -98,8 +98,8 @@
     if (isTest) { root.console?.info('[BORNLI QA] ' + event + ' ' + JSON.stringify(safe)); return true; }
     try { loadMetrica(); root.ym(counterId, 'reachGoal', event, safe); return true; } catch { return false; }
   }
-  function showPanel() { if (panel) panel.hidden = false; settings?.setAttribute('aria-expanded', 'true'); }
-  function hidePanel() { if (panel) panel.hidden = true; settings?.setAttribute('aria-expanded', 'false'); }
+  function showPanel() { if (panel) panel.hidden = false; settings?.setAttribute('aria-expanded', 'true'); doc.getElementById('lead-analytics-settings')?.setAttribute('aria-expanded', 'true'); }
+  function hidePanel() { if (panel) panel.hidden = true; settings?.setAttribute('aria-expanded', 'false'); doc.getElementById('lead-analytics-settings')?.setAttribute('aria-expanded', 'false'); }
   const viewedEvents = new Set();
   let viewObserver = null, viewRecords = [];
   function stopViewTracking() {
@@ -149,26 +149,25 @@
     write(storageKey, choice); hidePanel();
     if (choice === 'yes') { rememberAttribution(); loadMetrica(); startViewTracking(); }
     else { clientId = ''; finishClientIdWaiters(); stopViewTracking(); previousCampaign = null; remove(attributionKey); if (wasAccepted && !isTest) root.location.reload(); }
-    const formChoice = doc.getElementById('lead-measurement-consent');
-    if (formChoice) formChoice.checked = choice === 'yes';
+    syncSubmissionNotice();
   }
   doc.getElementById('analytics-accept')?.addEventListener('click', () => setChoice('yes'));
   doc.getElementById('analytics-decline')?.addEventListener('click', () => setChoice('no'));
   settings?.addEventListener('click', () => panel?.hidden ? showPanel() : hidePanel());
-  const formChoice = doc.getElementById('lead-measurement-consent');
-  if (formChoice) {
-    // A new visitor confirms this visible default by submitting the form.
-    // A saved refusal always wins. Merely rendering the default loads no tag.
-    formChoice.checked = choice !== 'no';
-    formChoice.addEventListener('change', () => {
-      if (!formChoice.checked) setChoice('no');
-      // Checking is a form preference; submission confirms the permission.
-    });
+  const submissionNotice = doc.getElementById('lead-submission-consent');
+  const formSettings = doc.getElementById('lead-analytics-settings');
+  function syncSubmissionNotice() {
+    const enabled = doc.getElementById('lead-measurement-enabled');
+    const disabled = doc.getElementById('lead-measurement-disabled');
+    if (enabled) enabled.hidden = choice === 'no';
+    if (disabled) disabled.hidden = choice !== 'no';
   }
+  formSettings?.addEventListener('click', () => panel?.hidden ? showPanel() : hidePanel());
+  syncSubmissionNotice();
   async function prepareFormMeasurement() {
-    if (formChoice && formChoice.checked !== (choice === 'yes')) {
-      setChoice(formChoice.checked ? 'yes' : 'no');
-    }
+    // Confirm the visible notice only on a valid submission. A previous refusal
+    // is preserved; visitors can change it using the adjacent settings button.
+    if (submissionNotice && choice === null) setChoice('yes');
     if (choice !== 'yes' || isTest || clientId) return clientId;
     // Let the official counter supply its identity before the server receives
     // the lead. A blocked or slow counter must never prevent an enquiry.
@@ -204,7 +203,7 @@
   doc.addEventListener('click', event => {
     if (event.target.closest?.('.lead-another')) {
       started = false;
-      if (formChoice) formChoice.checked = choice !== 'no';
+      syncSubmissionNotice();
     }
     if (event.target.closest?.('[data-track-primary-cta="hero"]')) emit('primary_cta_click');
     const link = event.target.closest?.('a[href]');
