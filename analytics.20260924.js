@@ -59,7 +59,7 @@
   }
   const panel = doc.getElementById('analytics-consent');
   const settings = doc.getElementById('analytics-settings');
-  let loaded = false;
+  let loaded = false, clientId = '';
   function loadMetrica() {
     if (choice !== 'yes' || isTest || loaded) return;
     loaded = true;
@@ -72,6 +72,9 @@
       doc.head.appendChild(tag);
     }
     root.ym(counterId, 'init', {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false});
+    root.ym(counterId, 'getClientID', value => {
+      if (choice === 'yes' && /^\d{1,30}$/.test(String(value || ''))) clientId = String(value);
+    });
   }
   function emit(event, properties = {}) {
     if (choice !== 'yes' || !allowedEvents.has(event)) return false;
@@ -137,11 +140,18 @@
     choice = value === 'yes' ? 'yes' : 'no';
     write(storageKey, choice); hidePanel();
     if (choice === 'yes') { rememberAttribution(); loadMetrica(); startViewTracking(); }
-    else { stopViewTracking(); previousCampaign = null; remove(attributionKey); if (wasAccepted && !isTest) root.location.reload(); }
+    else { clientId = ''; stopViewTracking(); previousCampaign = null; remove(attributionKey); if (wasAccepted && !isTest) root.location.reload(); }
+    const formChoice = doc.getElementById('lead-measurement-consent');
+    if (formChoice) formChoice.checked = choice === 'yes';
   }
   doc.getElementById('analytics-accept')?.addEventListener('click', () => setChoice('yes'));
   doc.getElementById('analytics-decline')?.addEventListener('click', () => setChoice('no'));
   settings?.addEventListener('click', () => panel?.hidden ? showPanel() : hidePanel());
+  const formChoice = doc.getElementById('lead-measurement-consent');
+  if (formChoice) {
+    formChoice.checked = choice === 'yes';
+    formChoice.addEventListener('change', () => setChoice(formChoice.checked ? 'yes' : 'no'));
+  }
   root.addEventListener('bornli:lead-confirmed', () => emit('lead_submitted'));
   doc.addEventListener('DOMContentLoaded', startViewTracking);
   doc.addEventListener('visibilitychange', () => {
@@ -160,13 +170,18 @@
     root.setTimeout(() => { invalidBatch = false; }, 0);
   }, true);
   doc.addEventListener('click', event => {
-    if (event.target.closest?.('.lead-another')) started = false;
+    if (event.target.closest?.('.lead-another')) {
+      started = false;
+      if (formChoice) formChoice.checked = choice === 'yes';
+    }
     if (event.target.closest?.('[data-track-primary-cta="hero"]')) emit('primary_cta_click');
     const link = event.target.closest?.('a[href]');
     if (link?.href.startsWith('tel:')) emit('contact_phone_click');
     // Telegram / WhatsApp use the existing native messenger goals in this counter.
   });
-  root.BORNLIAnalytics = {emit, isTest, getAttribution, getConsent: () => choice === 'yes', counterId};
+  root.BORNLIAnalytics = {emit, isTest, getAttribution, getConsent: () => choice === 'yes',
+    getConsentState: () => choice === 'yes' ? 'granted' : choice === 'no' ? 'denied' : 'unknown',
+    getClientID: () => choice === 'yes' && !isTest ? clientId : '', counterId};
   rememberAttribution();
   if (choice === 'yes') { loadMetrica(); startViewTracking(); }
   else if (choice !== 'no') showPanel();
