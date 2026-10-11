@@ -1,4 +1,9 @@
 User-agent: *
+# Let crawlers read the legacy homepage redirect; keep other legacy paths blocked.
+Allow: /ru/$
+Allow: /ru/?
+Allow: /ru/index.html$
+Allow: /ru/index.html?
 Disallow: /ru/
 Disallow: /eu/
 Disallow: /en/
