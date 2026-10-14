@@ -55,6 +55,7 @@ jobs:
               identity = request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})['value']
               print('::add-mask::' + identity)
               claims = json.loads(base64.urlsafe_b64decode(identity.split('.')[1] + '==='))
+              print('Identity scope: ' + json.dumps({key: claims.get(key) for key in ('sub', 'aud', 'iss')}))
               if (claims.get('sub') != 'repo:Theodorelics/bornli-ru:ref:refs/heads/main'
                       or claims.get('aud') != 'https://github.com/Theodorelics'
                       or claims.get('iss') != 'https://token.actions.githubusercontent.com'):
