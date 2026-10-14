@@ -1,0 +1,85 @@
+name: Lead delivery retry
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '3-59/5 * * * *'
+
+permissions: {}
+
+concurrency:
+  group: lead-delivery-retry
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    if: github.repository == 'Theodorelics/bornli-ru' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      id-token: write
+    env:
+      RETRY_SERVICE_ACCOUNT: ${{ vars.RETRY_SERVICE_ACCOUNT }}
+      RETRY_FUNCTION_ID: ${{ vars.RETRY_FUNCTION_ID }}
+    steps:
+      # No checkout, third-party actions, lead data, or long-lived cloud keys.
+      # Cloud role permits invocation of this one private retry worker only.
+      - name: Authenticate and invoke the private retry worker
+        shell: python
+        run: |
+          import json, os, re, sys, urllib.error, urllib.parse, urllib.request
+          from datetime import datetime, timezone
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          opener = urllib.request.build_opener(NoRedirect())
+
+          def request(url, data=None, headers=None, timeout=20):
+              req = urllib.request.Request(url, data=data, headers=headers or {})
+              with opener.open(req, timeout=timeout) as response:
+                  return json.loads(response.read(65536))
+
+          phase = 'configuration'
+          try:
+              account = os.environ['RETRY_SERVICE_ACCOUNT']
+              function = os.environ['RETRY_FUNCTION_ID']
+              if not re.fullmatch(r'[a-z0-9]{20}', account) or not re.fullmatch(r'[a-z0-9]{20}', function):
+                  raise ValueError('invalid_configuration')
+              source = os.environ['GITHUB_EVENT_NAME']
+              if source not in ('schedule', 'workflow_dispatch'):
+                  raise ValueError('unexpected_trigger')
+              phase = 'github_identity'
+              url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&' + urllib.parse.urlencode({'audience': 'https://github.com/Theodorelics'})
+              identity = request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})['value']
+              print('::add-mask::' + identity)
+              phase = 'cloud_identity'
+              payload = urllib.parse.urlencode({
+                  'grant_type': 'urn:ietf:params:oauth:grant-type:token-exchange',
+                  'requested_token_type': 'urn:ietf:params:oauth:token-type:access_token',
+                  'audience': account, 'subject_token': identity,
+                  'subject_token_type': 'urn:ietf:params:oauth:token-type:id_token',
+              }).encode()
+              token = request('https://auth.yandex.cloud/oauth/token', payload,
+                              {'Content-Type': 'application/x-www-form-urlencoded'})['access_token']
+              print('::add-mask::' + token)
+              phase = 'private_worker'
+              event = {'messages': [{'event_metadata': {
+                  'event_type': 'bornli.github.' + source,
+                  'created_at': datetime.now(timezone.utc).isoformat(),
+                  'event_id': os.environ['GITHUB_RUN_ID'],
+              }}]}
+              result = request('https://functions.yandexcloud.net/' + function + '?integration=raw',
+                               json.dumps(event).encode(),
+                               {'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'}, 110)
+              if not isinstance(result, dict) or type(result.get('checked')) is not int or type(result.get('processed')) is not int:
+                  raise ValueError('invalid_worker_receipt')
+              # Do not expose client records or internal measurement summaries in public logs.
+              print('Authenticated retry worker completed successfully.')
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write('Private delivery and measurement retry worker completed. Trigger: ' + source + '.\n')
+          except Exception as exc:
+              code = exc.code if isinstance(exc, urllib.error.HTTPError) else type(exc).__name__
+              print('::error::Retry worker failed at ' + phase + ' (' + str(code) + '). Saved enquiries remain queued.')
+              sys.exit(1)
