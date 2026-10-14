@@ -27,7 +27,7 @@ jobs:
       - name: Authenticate and invoke the private retry worker
         shell: python
         run: |
-          import json, os, re, sys, urllib.error, urllib.parse, urllib.request
+          import base64, json, os, re, sys, urllib.error, urllib.parse, urllib.request
           from datetime import datetime, timezone
 
           class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -54,6 +54,11 @@ jobs:
               url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&' + urllib.parse.urlencode({'audience': 'https://github.com/Theodorelics'})
               identity = request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})['value']
               print('::add-mask::' + identity)
+              claims = json.loads(base64.urlsafe_b64decode(identity.split('.')[1] + '==='))
+              if (claims.get('sub') != 'repo:Theodorelics/bornli-ru:ref:refs/heads/main'
+                      or claims.get('aud') != 'https://github.com/Theodorelics'
+                      or claims.get('iss') != 'https://token.actions.githubusercontent.com'):
+                  raise ValueError('unexpected_identity_claims')
               phase = 'cloud_identity'
               payload = urllib.parse.urlencode({
                   'grant_type': 'urn:ietf:params:oauth:grant-type:token-exchange',
@@ -81,5 +86,14 @@ jobs:
                   summary.write('Private delivery and measurement retry worker completed. Trigger: ' + source + '.\n')
           except Exception as exc:
               code = exc.code if isinstance(exc, urllib.error.HTTPError) else type(exc).__name__
+              if phase == 'cloud_identity' and isinstance(exc, urllib.error.HTTPError):
+                  try:
+                      error = json.loads(exc.read(4096))
+                      # Restrict identity diagnostics to the protocol's error code.
+                      category = error.get('error', '')
+                      if isinstance(category, str) and re.fullmatch(r'[A-Za-z0-9_.-]{1,80}', category):
+                          code = str(code) + ':' + category
+                  except Exception:
+                      pass
               print('::error::Retry worker failed at ' + phase + ' (' + str(code) + '). Saved enquiries remain queued.')
               sys.exit(1)
