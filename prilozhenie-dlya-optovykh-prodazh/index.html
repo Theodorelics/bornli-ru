@@ -10,7 +10,7 @@
 <link rel="preload" href="/assets/golos-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/golos-bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/analytics.20260924.css"><script src="/analytics.20260924.js?v=funnel1" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/", "url": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/", "name": "B2B приложение для оптовых продаж", "inLanguage": "ru-RU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BORNLI", "item": "https://bornli.ru/"}, {"@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://bornli.ru/guides/"}, {"@type": "ListItem", "position": 3, "name": "B2B приложение для оптовых продаж", "item": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/"}]}, {"@type": "Article", "headline": "B2B приложение для оптовых продаж", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "author": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "publisher": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "mainEntityOfPage": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/", "image": "https://bornli.ru/favicon.png"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/", "url": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/", "name": "B2B приложение для оптовых продаж", "inLanguage": "ru-RU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BORNLI", "item": "https://bornli.ru/"}, {"@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://bornli.ru/guides/"}, {"@type": "ListItem", "position": 3, "name": "B2B приложение для оптовых продаж", "item": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/"}]}, {"@type": "Article", "headline": "B2B приложение для оптовых продаж", "datePublished": "2026-10-19", "dateModified": "2026-10-22", "author": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "publisher": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "mainEntityOfPage": "https://bornli.ru/prilozhenie-dlya-optovykh-prodazh/", "image": "https://bornli.ru/favicon.png"}]}</script>
 <style>
     @font-face{font-family:Golos;src:url('/assets/golos-regular.woff2') format('woff2');font-weight:400;font-display:swap}
     @font-face{font-family:Golos;src:url('/assets/golos-bold.woff2') format('woff2');font-weight:700;font-display:swap}
@@ -104,7 +104,7 @@
 <header class="wrap topbar"><a class="brand" href="/" aria-label="BORNLI — главная">BORNLI</a><nav aria-label="Основная навигация"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a class="pill" href="/#contact">Обсудить проект ↗</a></nav></header>
 <div class="wrap crumbs"><a href="/">BORNLI</a> / <a href="/guides/">Материалы</a> / B2B приложение для оптовых продаж</div>
 <main><div class="wrap hero editorial-hero"><p class="eyebrow">BORNLI / о разработке по делу</p><h1>B2B приложение для оптовых продаж</h1><p class="lead">Разработаем мобильное приложение, в котором оптовый клиент видит свои условия и собирает заказ, а менеджер согласует исключения. Начнём с одного рабочего процесса: от повторной закупки до подтверждения наличия и цены.</p>
-<div class="hero-meta">Редакция BORNLI · <time datetime="2026-10-19">2026-10-19</time></div></div>
+<div class="hero-meta">Редакция BORNLI · <time datetime="2026-10-22">2026-10-22</time></div></div>
 <section id="task"><div class="wrap">
   <p class="eyebrow">Задача / повторная закупка</p>
   <h2>Клиенту нужен свой заказ.<br>Менеджеру — понятные исключения.</h2>
@@ -126,7 +126,135 @@
     <div><span>03 / Покупатель</span><strong>Подтвердить итог</strong><p>Увидеть окончательный состав, сумму и статус заказа.</p></div>
   </div>
   <p class="caption">Схема предлагаемой логики. Автоматическое резервирование, оплата и документы зависят от выбранной учётной системы и согласованного объёма разработки.</p>
-  <p>В прототипе стоит отдельно показать момент изменения цены. Если клиент нажал «повторить», приложение не должно создавать впечатление, что старая стоимость сохранилась. Изменённую строку лучше выделить до отправки заказа.</p>
+  <p>Попробуйте повторить заказ в прототипе ниже. Пройдите за покупателя и менеджера: сравните цену, выберите замену и проверьте статус после имитации потери ответа.</p>
+  <div class="wh-demo" id="wholesale-demo" aria-label="Модельный сценарий оптового заказа">
+    <div class="wh-context">
+      <p class="wh-label">Интерактивный прототип</p>
+      <h3>Один заказ.<br>Две стороны.</h3>
+      <p>Все товары, цены и компании условные. Заказ никуда не отправляется; интеграции с учётной системой здесь нет.</p>
+      <ol class="wh-steps" aria-label="Этапы демонстрации">
+        <li aria-current="step">Прошлая закупка</li><li>Новые условия</li><li>Решение менеджера</li><li>Подтверждение покупателя</li><li>Статус заказа</li>
+      </ol>
+      <p id="wh-explanation">Покупатель выбирает прошлую закупку. На следующем экране нужно заново проверить условия.</p>
+      <button class="wh-reset" type="button" data-wh-action="reset">Начать заново</button>
+    </div>
+    <div class="wh-app">
+      <div class="wh-appbar"><span>ОПТОВЫЙ КАБИНЕТ</span><span id="wh-role">Покупатель · демо</span></div>
+      <div id="wh-screen">
+        <p class="wh-label">Шаг 1 из 5</p>
+        <h4 tabindex="-1">Прошлая закупка</h4>
+        <p class="wh-sub">Заказ ДЕМО-013 · условные данные</p>
+        <div class="wh-item"><div><strong>Стаканы 300 мл</strong><small>2 коробки × 1 200 ₽ · по 100 шт.</small></div><b>2 400 ₽</b></div>
+        <div class="wh-item"><div><strong>Крышки белые</strong><small>1 коробка × 600 ₽ · 100 шт.</small></div><b>600 ₽</b></div>
+        <div class="wh-total"><span>Сумма прошлого заказа</span><strong>3 000 ₽</strong></div>
+        <button class="wh-primary" type="button" data-wh-action="repeat">Повторить закупку →</button>
+      </div>
+      <p class="wh-footer">Модельный сценарий BORNLI. После перезагрузки демонстрация начинается заново.</p>
+    </div>
+    <noscript>Для интерактивной демонстрации включите JavaScript. Схема и объяснение процесса доступны выше без него.</noscript>
+  </div>
+  <p class="caption">Это проверка интерфейса на условных данных. Повторная отправка, резерв и восстановление после сбоя на реальном сервере требуют отдельной реализации и испытаний.</p>
+  <style>
+    .wh-demo{--wh-ink:#17211b;--wh-paper:#f2f4ed;--wh-muted:#526050;--wh-accent:#dcedc4;--wh-line:#c4cbbb;--wh-warn:#f4e5bc;--wh-radius:22px;--wh-space:24px;display:grid;grid-template-columns:.8fr 1fr;gap:48px;margin:36px 0;align-items:start}
+    .wh-demo *{box-sizing:border-box}.wh-demo .wh-label{font-size:12px;text-transform:uppercase;letter-spacing:.09em;margin:0 0 16px}
+    .wh-context h3{font-size:44px;line-height:1.05;letter-spacing:-.04em;margin:0 0 24px}.wh-context>p:not(.wh-label){font-size:16px;max-width:42ch;color:#c0ccbf}
+    .wh-steps{padding-left:23px;margin:30px 0}.wh-steps li{font-size:14px;color:#a7b3a6;padding:5px 0;margin:0}.wh-steps [aria-current]{color:var(--wh-accent);font-weight:700}
+    .wh-app{background:var(--wh-paper);color:var(--wh-ink);border-radius:var(--wh-radius);padding:var(--wh-space);border:1px solid var(--wh-line);min-width:0}
+    .wh-appbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:10px;letter-spacing:.08em;padding-bottom:20px;border-bottom:1px solid var(--wh-line);margin-bottom:24px}
+    .wh-app h4{font-size:30px;line-height:1.12;letter-spacing:-.03em;margin:0 0 12px;scroll-margin-top:32px}.wh-app h4:focus{outline:none}
+    .wh-app p{font-size:14px;line-height:1.5}.wh-sub{color:var(--wh-muted);margin:0 0 22px}
+    .wh-item{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--wh-line);padding:18px 0;font-size:15px}.wh-item>div{min-width:0}.wh-item strong{display:block;font-size:16px}.wh-item small{display:block;color:var(--wh-muted);font-size:13px;margin-top:6px}.wh-item b{white-space:nowrap;font-size:15px;font-variant-numeric:tabular-nums}
+    .wh-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:24px 0;font-size:13px}.wh-total strong{font-size:27px;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .wh-demo button{font-family:inherit;cursor:pointer;min-height:44px;border-radius:12px;font-weight:700;font-size:14px}
+    .wh-primary{display:block;width:100%;padding:14px 18px;background:var(--wh-ink);color:var(--wh-paper);border:1px solid var(--wh-ink);margin-top:12px}.wh-primary:hover{background:#2c4331}.wh-primary:active{transform:translateY(1px)}
+    .wh-reset{background:transparent;color:var(--wh-accent);border:1px solid #72816e;padding:10px 18px}
+    .wh-demo button:focus-visible,.wh-demo input:focus-visible{outline:3px solid #5f813b;outline-offset:4px}.wh-demo button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .wh-app .wh-footer{font-size:11px;color:var(--wh-muted);border-top:1px solid var(--wh-line);padding-top:16px;margin:22px 0 0}
+    .wh-notice{background:var(--wh-warn);padding:14px;border-radius:12px;margin:18px 0;font-size:14px}.wh-notice strong{display:block;margin-bottom:5px}
+    .wh-choice{display:flex;align-items:flex-start;gap:10px;padding:14px 0;min-height:44px;font-size:14px;cursor:pointer}.wh-choice input{width:18px;height:18px;flex:none;margin:2px 0;accent-color:var(--wh-ink)}
+    .wh-qty{display:flex;align-items:center;gap:14px;margin:16px 0}.wh-qty button{width:44px;background:var(--wh-paper);color:var(--wh-ink);border:1px solid var(--wh-muted)}.wh-qty span{min-width:64px;text-align:center;font-size:14px}
+    .wh-success{border-left:4px solid #4f683b;padding:4px 0 4px 16px;margin:22px 0}.wh-success strong{font-size:25px;display:block}
+    @media(max-width:700px){.wh-demo{grid-template-columns:1fr;gap:24px}.wh-context h3{font-size:34px}.wh-steps{display:flex;flex-wrap:wrap;gap:6px 18px;list-style-position:inside;padding:0}.wh-steps li{font-size:12px}.wh-app{--wh-space:20px}.wh-context>p:not(.wh-label){font-size:14px}}
+    @media(max-width:380px){.wh-app{--wh-space:16px}.wh-app h4{font-size:25px}.wh-item{flex-wrap:wrap}.wh-total{flex-wrap:wrap}.wh-context h3{font-size:30px}}
+    @media(prefers-reduced-motion:reduce){.wh-primary:active{transform:none}}
+  </style>
+  <script>
+  (() => {
+    'use strict';
+    const root = document.getElementById('wholesale-demo');
+    if (!root) return;
+    const screen = root.querySelector('#wh-screen');
+    const initial = screen.innerHTML;
+    const role = root.querySelector('#wh-role');
+    const explanation = root.querySelector('#wh-explanation');
+    const steps = [...root.querySelectorAll('.wh-steps li')];
+    const money = n => new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+    let step = 1, boxes = 2, substitute = true, fail = true, accepted = false;
+    const total = () => boxes * 1320 + (substitute ? 650 : 0);
+    const title = (n, text, sub) => `<p class="wh-label">Шаг ${n} из 5</p><h4 tabindex="-1">${text}</h4><p class="wh-sub">${sub}</p>`;
+    const action = (id, text) => `<button class="wh-primary" type="button" data-wh-action="${id}">${text}</button>`;
+    const rows = () => `<div class="wh-item"><div><strong>Стаканы 300 мл</strong><small>${boxes} кор. × 1 320 ₽ · по 100 шт.</small></div><b>${money(boxes * 1320)}</b></div><div class="wh-item"><div><strong>${substitute ? 'Крышки чёрные · замена' : 'Крышки исключены'}</strong><small>${substitute ? '1 коробка · 100 шт.' : 'По решению менеджера'}</small></div><b>${substitute ? '650 ₽' : '0 ₽'}</b></div><div class="wh-total"><span>Итого в демо</span><strong>${money(total())}</strong></div>`;
+    function render(focus = true) {
+      steps.forEach((el, i) => i === step - 1 ? el.setAttribute('aria-current', 'step') : el.removeAttribute('aria-current'));
+      role.textContent = step === 3 ? 'Менеджер · демо' : 'Покупатель · демо';
+      if (step === 1) {
+        screen.innerHTML = initial;
+        explanation.textContent = 'Покупатель выбирает прошлую закупку. На следующем экране нужно заново проверить условия.';
+      } else if (step === 2) {
+        explanation.textContent = 'Старая сумма не переносится незаметно. Покупатель видит изменение цены и отсутствие товара до отправки менеджеру.';
+        screen.innerHTML = title(2, 'Условия изменились', 'Это черновик. Товар ещё не зарезервирован.') +
+          '<div class="wh-notice"><strong>Новая цена на стаканы</strong>Было 1 200 ₽, стало 1 320 ₽ за коробку.</div>' +
+          `<div class="wh-item"><div><strong>Стаканы 300 мл</strong><small>Только целые коробки по 100 шт.</small></div><b>${money(boxes * 1320)}</b></div>` +
+          `<div class="wh-qty"><button type="button" data-wh-action="less" aria-label="Уменьшить число коробок" ${boxes === 1 ? 'disabled' : ''}>−</button><span aria-live="polite">${boxes} кор.</span><button type="button" data-wh-action="more" aria-label="Увеличить число коробок" ${boxes === 10 ? 'disabled' : ''}>+</button></div>` +
+          '<div class="wh-notice"><strong>Белых крышек нет в наличии</strong>Менеджер предложит замену или уберёт позицию.</div>' + action('manager', 'Перейти к решению менеджера →');
+      } else if (step === 3) {
+        explanation.textContent = 'Сейчас вы в роли менеджера. Решение по отсутствующей позиции будет отдельно показано покупателю.';
+        screen.innerHTML = title(3, 'Согласовать замену', 'Условная закупка · действие менеджера') +
+          '<p>В модели доступны чёрные крышки того же размера: 650 ₽ за коробку. Можно предложить их или убрать крышки из заказа.</p>' +
+          `<label class="wh-choice"><input type="checkbox" id="wh-substitute" ${substitute ? 'checked' : ''}>Предложить чёрные крышки вместо белых</label>` + rows() + action('review', 'Передать итог покупателю →');
+      } else if (step === 4) {
+        explanation.textContent = 'Снова роль покупателя: окончательный состав и сумма видны до подтверждения. Потеря ответа ниже — только управляемая имитация.';
+        screen.innerHTML = title(4, 'Проверьте итог', 'Менеджер разобрал исключения. Решение за вами.') + rows() +
+          `<label class="wh-choice"><input type="checkbox" id="wh-fail" ${fail ? 'checked' : ''}>Сымитировать потерю ответа после подтверждения</label>` + action('confirm', 'Подтвердить демо-заказ →');
+      } else {
+        explanation.textContent = 'В этой модели повторная проверка возвращает тот же номер. Это иллюстрация правила: работа с реальным сервером требует отдельных тестов.';
+        screen.innerHTML = fail
+          ? title(5, 'Ответ не получен', 'Имитация сбоя · проверьте статус существующего заказа') +
+            '<div class="wh-notice" role="status"><strong>Заказ мог быть принят</strong>Не создавайте новый. Проверим тот же номер: ДЕМО-014.</div>' + action('retry', 'Проверить статус ДЕМО-014 →')
+          : title(5, 'Демо-заказ принят', 'Ничего не отправлено поставщику.') +
+            '<div class="wh-success" role="status"><strong>ДЕМО-014</strong>В модели один заказ. Повторная проверка не создаёт второй.</div>' + rows() + action('retry', 'Проверить статус ещё раз');
+      }
+      if (focus) screen.querySelector('h4').focus();
+    }
+    root.addEventListener('click', event => {
+      const button = event.target.closest('[data-wh-action]');
+      if (!button || !root.contains(button) || button.disabled) return;
+      const id = button.dataset.whAction;
+      if (id === 'reset') { step = 1; boxes = 2; substitute = true; fail = true; accepted = false; }
+      else if (id === 'repeat' && step === 1) step = 2;
+      else if ((id === 'more' || id === 'less') && step === 2) {
+        boxes = Math.max(1, Math.min(10, boxes + (id === 'more' ? 1 : -1)));
+        render(false);
+        const next = screen.querySelector(`[data-wh-action="${id}"]`);
+        (next.disabled ? screen.querySelector(`[data-wh-action="${id === 'more' ? 'less' : 'more'}"]`) : next).focus({preventScroll:true});
+        return;
+      }
+      else if (id === 'manager' && step === 2) step = 3;
+      else if (id === 'review' && step === 3) step = 4;
+      else if (id === 'confirm' && step === 4) { accepted = true; step = 5; }
+      else if (id === 'retry' && step === 5 && accepted) fail = false;
+      else return;
+      render();
+    });
+    root.addEventListener('change', event => {
+      if (event.target.id === 'wh-substitute' && step === 3) {
+        substitute = event.target.checked; render(false);
+        screen.querySelector('#wh-substitute').focus({preventScroll:true});
+      }
+      if (event.target.id === 'wh-fail' && step === 4) fail = event.target.checked;
+    });
+  })();
+  </script>
 </div></section>
 
 <section id="conditions"><div class="wrap">
