@@ -1,0 +1,8 @@
+.editorial-visual{margin-top:0;margin-bottom:68px}
+.editorial-visual-link{display:block;position:relative;border-radius:24px;overflow:hidden;background:#252923;isolation:isolate}
+.editorial-visual img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+.editorial-visual-zoom{position:absolute;right:18px;bottom:18px;padding:11px 16px;border-radius:999px;background:#101714;color:#e8f4d7;font:600 13px/1.2 system-ui,sans-serif;box-shadow:0 2px 16px #0003}
+.editorial-visual figcaption{max-width:920px;margin:16px 0 0;color:#aebcaf;font-size:14px;line-height:1.6}
+.editorial-visual-link:focus-visible{outline:3px solid #dceda4;outline-offset:5px}
+.guide-card .guide-cover{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#21271f;border-radius:15px;margin:0 0 24px}
+@media(max-width:700px){.editorial-visual{margin-bottom:42px}.editorial-visual-link{border-radius:16px}.editorial-visual-zoom{right:10px;bottom:10px;font-size:11px;padding:8px 11px}.editorial-visual figcaption{font-size:12px;margin-top:12px}.guide-card .guide-cover{margin-bottom:20px}}
