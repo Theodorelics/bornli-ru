@@ -38,24 +38,66 @@
   const hasCampaign = Object.keys(current).length > 0;
   let previousCampaign = saved && Date.now() - saved.at >= 0 && Date.now() - saved.at < attributionTTL
     ? {at: saved.at, value: pickAttribution(new URLSearchParams(saved.value).toString())} : null;
-  let referrerHost = '';
-  try {
-    const referrer = new URL(doc.referrer);
-    if (referrer.hostname !== root.location.hostname) referrerHost = referrer.hostname.slice(0, 200);
-  } catch {}
+  // Keep the first page and external host within a consented browser-tab visit.
+  // Session-only, 30-minute inactivity limit; no URL query/hash or form data.
+  // Without permission, the preceding same-site page is only enquiry context:
+  // an unknown search engine is never inferred from it.
+  function createVisitContext(key, permission, test) {
+    const maxAge = 30 * 60000;
+    const safePath = value => typeof value === 'string' && value.length <= 200 &&
+      /^\/(?!\/)[a-z0-9/_.-]*$/i.test(value) ? value : '/';
+    const safeHost = value => typeof value === 'string' &&
+      /^[a-z0-9.-]{1,200}$/i.test(value) ? value.toLowerCase() : '';
+    let externalHost = '', precedingPath = '';
+    try {
+      const ref = new URL(doc.referrer);
+      if (/^https?:$/.test(ref.protocol)) {
+        if (ref.hostname === root.location.hostname) precedingPath = safePath(ref.pathname);
+        else externalHost = safeHost(ref.hostname);
+      }
+    } catch {}
+    const campaign = pickAttribution(root.location.search);
+    const fresh = () => ({campaign: {...campaign}, referrer_host: externalHost,
+      landing_path: Object.keys(campaign).length || externalHost ? safePath(root.location.pathname)
+        : precedingPath || safePath(root.location.pathname)});
+    let value = fresh();
+    const forget = () => { try { root.sessionStorage?.removeItem(key); } catch {} };
+    if (!permission()) forget();
+    if (permission() && !test && !Object.keys(campaign).length && !externalHost) {
+      try {
+        const saved = JSON.parse(root.sessionStorage?.getItem(key) || 'null');
+        if (saved && Number.isFinite(saved.at) && Date.now() - saved.at >= 0 && Date.now() - saved.at < maxAge &&
+            saved.value && typeof saved.value === 'object') {
+          value = {campaign: pickAttribution(new URLSearchParams(saved.value.campaign || {}).toString()),
+            landing_path: safePath(saved.value.landing_path), referrer_host: safeHost(saved.value.referrer_host)};
+        }
+      } catch {}
+    }
+    return {
+      get: () => value,
+      remember: () => {
+        if (!permission() || test) return;
+        try { root.sessionStorage?.setItem(key, JSON.stringify({at: Date.now(), value})); } catch {}
+      },
+      reset: () => { forget(); value = fresh(); }
+    };
+  }
+  const visit = createVisitContext('bornli_ru_visit_v1', () => choice === 'yes', isTest);
   // Never combine fields from different clicks. Historical attribution requires consent.
   function getAttribution() {
-    const campaign = hasCampaign ? current : choice === 'yes' && !referrerHost ? previousCampaign?.value || {} : {};
+    const entry = visit.get(), hasVisitCampaign = Object.keys(entry.campaign).length > 0;
+    const campaign = hasVisitCampaign ? entry.campaign : choice === 'yes' && !entry.referrer_host ? previousCampaign?.value || {} : {};
     return {...campaign,
-      source_type: Object.keys(campaign).length ? 'campaign' : referrerHost ? 'referral' : 'direct_or_unknown',
-      attribution_scope: hasCampaign || referrerHost || !Object.keys(campaign).length ? 'current_visit' : 'last_campaign_30d',
-      landing_path: root.location.pathname.slice(0, 200),
-      ...(referrerHost ? {referrer_host: referrerHost} : {})};
+      source_type: Object.keys(campaign).length ? 'campaign' : entry.referrer_host ? 'referral' : 'direct_or_unknown',
+      attribution_scope: hasVisitCampaign || entry.referrer_host || !Object.keys(campaign).length ? 'current_visit' : 'last_campaign_30d',
+      landing_path: entry.landing_path,
+      ...(entry.referrer_host ? {referrer_host: entry.referrer_host} : {})};
   }
   function rememberAttribution() {
     if (choice !== 'yes' || isTest) return;
+    visit.remember();
     if (hasCampaign) write(attributionKey, JSON.stringify({at: Date.now(), value: current}));
-    else if (referrerHost) { previousCampaign = null; remove(attributionKey); }
+    else if (visit.get().referrer_host) { previousCampaign = null; remove(attributionKey); }
   }
   const panel = doc.getElementById('analytics-consent');
   const settings = doc.getElementById('analytics-settings');
@@ -148,7 +190,7 @@
     choice = value === 'yes' ? 'yes' : 'no';
     write(storageKey, choice); hidePanel();
     if (choice === 'yes') { rememberAttribution(); loadMetrica(); startViewTracking(); }
-    else { clientId = ''; finishClientIdWaiters(); stopViewTracking(); previousCampaign = null; remove(attributionKey); if (wasAccepted && !isTest) root.location.reload(); }
+    else { clientId = ''; finishClientIdWaiters(); stopViewTracking(); previousCampaign = null; remove(attributionKey); visit.reset(); if (wasAccepted && !isTest) root.location.reload(); }
     syncSubmissionNotice();
   }
   doc.getElementById('analytics-accept')?.addEventListener('click', () => setChoice('yes'));
