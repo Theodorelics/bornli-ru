@@ -1,0 +1,63 @@
+name: Temporary BORNLI delivery QA
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  synthetic-enquiry:
+    if: github.repository == 'Theodorelics/bornli-ru' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Submit one synthetic enquiry; never invoke retry
+        shell: python
+        run: |
+          import json, urllib.request, urllib.error
+          from datetime import datetime, timezone
+          lead_id = '21e3cfa8-cdef-469d-b3e7-1e635e96862e'
+          payload = {
+              'lead_id': lead_id,
+              'site': 'bornli_en',
+              'name': 'BORNLI AI DELIVERY QA 2026-11-06',
+              'contact': 'qa@example.invalid',
+              'biz': 'TEST ONLY. Checking delivery of an AI workflow enquiry. No reply needed. Not a customer lead.',
+              'niche': 'QA automation workflow',
+              'page': 'https://bornli.com/',
+              'consent': True,
+              'consent_version': 'qa-delivery-20261106',
+              'consent_at': datetime.now(timezone.utc).isoformat(),
+              'ad_consent': False,
+              'analytics_choice': 'denied',
+              'is_test': True,
+              'attribution': {
+                  'landing_path': '/ai-maintenance-triage/',
+                  'referrer_host': 'www.google.com',
+                  'source_type': 'referral',
+                  'attribution_scope': 'current_visit',
+              },
+          }
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          req = urllib.request.Request(
+              'https://functions.yandexcloud.net/d4eicls7bcd7gb5jp01v',
+              data=json.dumps(payload).encode(),
+              headers={'Content-Type': 'application/json'},
+              method='POST',
+          )
+          try:
+              with urllib.request.build_opener(NoRedirect()).open(req, timeout=55) as response:
+                  result = json.loads(response.read(8192))
+                  proof = {'checked_at': datetime.now(timezone.utc).isoformat(), 'http_status': response.status,
+                           'lead_id': result.get('lead_id'), 'ok': result.get('ok'),
+                           'status': result.get('status'), 'measurement': result.get('measurement'),
+                           'is_test': True, 'manual_retry_invoked': False}
+                  print(json.dumps(proof, sort_keys=True))
+                  if result.get('ok') is not True or result.get('lead_id') != lead_id:
+                      raise ValueError('unexpected_receipt')
+          except Exception as exc:
+              print(json.dumps({'lead_id': lead_id, 'status': 'unknown', 'error_class': type(exc).__name__,
+                                'is_test': True, 'manual_retry_invoked': False}))
+              raise SystemExit(1)
