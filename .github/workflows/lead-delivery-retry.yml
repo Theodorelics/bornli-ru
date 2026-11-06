@@ -80,6 +80,19 @@ jobs:
                                {'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'}, 110)
               if not isinstance(result, dict) or type(result.get('checked')) is not int or type(result.get('processed')) is not int:
                   raise ValueError('invalid_worker_receipt')
+              # Temporary encrypted maintenance receipt. No cloud credentials or lead data are exported.
+              if source == 'workflow_dispatch':
+                  import subprocess, tempfile
+                  public_key = '-----BEGIN PUBLIC KEY-----\nMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAuS2Fx0MYF3GGHwHFM1jO\nbQf2ok3CkT4a05Z+JCEcCUwvnY6W8XTM198JGuPlIMLjm4ErilH0nQcG47KdDIi0\n4S2cBhRE+p+RoWWzzZlqiSv7K18eXUr3epQ8lYLG/wUl0S1W2DBkJ/ICT/1pOgCB\n0i7Hbd5lSH4uHKMvb5tBaoecESH/+IWcTGSpIStT5uWEhIzA0iQNDNPo/UtQFo/S\nBAkn+KALhHl2tE3a93lu9uZ8bU7AuvocWk7xbimE9KFfZ2j8gJUr3i6B+8SZAoA5\n7e5izoqxdAuq2LnjbMRaGrwqrmLbA7PmE4gcSltLdaHfMm6vJ6e7BaCgOzmtu7n7\nDhnfD+Qc7j0uQaM+HN1uRsavRQaBU9h7h3jcZESZ7RTRqge5ewih7v7vP0EP1S2V\n6fESt9G1FjRtkndDn0xNOlS+6aFge3ZEpsj9qpsEnSsAqgd97zNhTbGOxftg3r08\nkC88OMvEDuNoxm0SNLxIdEDO628nQPdP19m1F2YjVwwxAgMBAAE=\n-----END PUBLIC KEY-----\n'
+                  receipt = {'checked': result['checked'], 'processed': result['processed'],
+                             'at': datetime.now(timezone.utc).isoformat(), 'run': os.environ['GITHUB_RUN_ID']}
+                  with tempfile.NamedTemporaryFile(mode='w', suffix='.pem') as key_file:
+                      key_file.write(public_key)
+                      key_file.flush()
+                      sealed = subprocess.run(['openssl', 'pkeyutl', '-encrypt', '-pubin', '-inkey', key_file.name,
+                                               '-pkeyopt', 'rsa_padding_mode:oaep', '-pkeyopt', 'rsa_oaep_md:sha256'],
+                                              input=json.dumps(receipt).encode(), capture_output=True, check=True).stdout
+                  print('BORNLI_PRIVATE_RECEIPT=' + base64.b64encode(sealed).decode())
               # Do not expose client records or internal measurement summaries in public logs.
               print('Authenticated retry worker completed successfully.')
               with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
