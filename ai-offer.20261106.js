@@ -7,8 +7,8 @@
     ru: { custom: 'Ваш рабочий процесс', 'invoice-review': 'Проверка счетов', 'inquiry-routing': 'Разбор входящих заявок', 'order-processing': 'Обработка заказов', 'property-maintenance': 'Заявки на обслуживание' }
   };
   const articlePaths = {
-    ru: new Set(['/ai-proverka-schetov-postavshchikov/']),
-    en: new Set(['/ai-inquiry-routing/', '/ai-order-processing/', '/ai-maintenance-triage/'])
+    ru: new Set(['/ai-proverka-schetov-postavshchikov/', '/ai-dispetcherskaya-upravlyayushchey-kompanii/']),
+    en: new Set(['/ai-inquiry-routing/', '/ai-order-processing/', '/ai-maintenance-triage/', '/ai-crm-integration/', '/ai-invoice-exception-handling/'])
   };
   function contextFromURL(value, language) {
     let url;
