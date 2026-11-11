@@ -7,8 +7,8 @@
     ru: { custom: 'Ваш рабочий процесс', 'invoice-review': 'Проверка счетов', 'inquiry-routing': 'Разбор входящих заявок', 'order-processing': 'Обработка заказов', 'property-maintenance': 'Заявки на обслуживание' }
   };
   const articlePaths = {
-    ru: new Set(['/ai-proverka-schetov-postavshchikov/', '/ai-dispetcherskaya-upravlyayushchey-kompanii/', '/ai-proverka-schetov-perevozchikov/', '/ai-kommercheskie-predlozheniya/']),
-    en: new Set(['/ai-inquiry-routing/', '/ai-order-processing/', '/ai-maintenance-triage/', '/ai-crm-integration/', '/ai-invoice-exception-handling/', '/ai-freight-invoice-checks/', '/ai-workflow-pilot/', '/ai-proposal-drafting/'])
+    ru: new Set(['/ai-proverka-schetov-postavshchikov/', '/ai-dispetcherskaya-upravlyayushchey-kompanii/', '/ai-proverka-schetov-perevozchikov/', '/ai-kommercheskie-predlozheniya/', '/ai-obrashcheniya-gostey-otelya/']),
+    en: new Set(['/ai-inquiry-routing/', '/ai-order-processing/', '/ai-maintenance-triage/', '/ai-crm-integration/', '/ai-invoice-exception-handling/', '/ai-freight-invoice-checks/', '/ai-workflow-pilot/', '/ai-proposal-drafting/', '/ai-automation-maintenance/', '/ai-hotel-guest-requests/'])
   };
   function contextFromURL(value, language) {
     let url;
