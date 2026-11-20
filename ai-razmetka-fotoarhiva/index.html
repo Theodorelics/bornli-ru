@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ИИ-разметка фотоархива: теги и проверка | BORNLI</title><meta name="description" content="Как автоматизировать разметку фотоархива: теги, точные дубли, проверка редактором и подборка в CMS. Кейс Fever и пять экранов концепции BORNLI.">
+<meta name="theme-color" content="#101714"><link rel="canonical" href="https://bornli.ru/ai-razmetka-fotoarhiva/">
+<meta property="og:type" content="article"><meta property="og:title" content="ИИ-разметка фотоархива: теги и проверка | BORNLI">
+<meta property="og:description" content="Как автоматизировать разметку фотоархива: теги, точные дубли, проверка редактором и подборка в CMS. Кейс Fever и пять экранов концепции BORNLI."><meta property="og:url" content="https://bornli.ru/ai-razmetka-fotoarhiva/">
+<meta property="og:image" content="https://bornli.ru/assets/seo/ai-media-tagging-input-20261120.webp"><meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/png" sizes="120x120" href="https://bornli.ru/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bornli.ru/apple-touch-icon.png">
+<link rel="preload" href="/assets/golos-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/golos-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/analytics.20260924.css"><script src="/analytics.20260924.js?v=ai-context-20261106" defer></script>
+<link rel="stylesheet" href="/assets/seo/editorial-visuals.v1.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://bornli.ru/ai-razmetka-fotoarhiva/", "url": "https://bornli.ru/ai-razmetka-fotoarhiva/", "name": "ИИ-разметка фотоархива: теги и проверка | BORNLI", "inLanguage": "ru-RU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BORNLI", "item": "https://bornli.ru/"}, {"@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://bornli.ru/guides/"}, {"@type": "ListItem", "position": 3, "name": "ИИ-разметка фотоархива: теги и проверка | BORNLI", "item": "https://bornli.ru/ai-razmetka-fotoarhiva/"}]}, {"@type": "Article", "headline": "ИИ-разметка фотоархива: теги и проверка | BORNLI", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "author": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "publisher": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "mainEntityOfPage": "https://bornli.ru/ai-razmetka-fotoarhiva/", "image": "https://bornli.ru/assets/seo/ai-media-tagging-input-20261120.webp"}]}</script>
+<style>
+    @font-face{font-family:Golos;src:url('/assets/golos-regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:Golos;src:url('/assets/golos-bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    :root{color-scheme:dark;--bg:#101714;--paper:#e9eee8;--muted:#abb9ae;--line:#34443a;--accent:#d9f49e}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--paper);font:400 18px/1.6 Golos,Arial,sans-serif}
+    a{color:inherit}
+    .wrap{width:min(1200px,calc(100% - 56px));margin:auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:88px;border-bottom:1px solid var(--line)}
+    .brand{font-size:25px;font-weight:700;letter-spacing:-.09em;text-decoration:none;line-height:1}
+    .topbar nav{display:flex;gap:28px;align-items:center;font-size:14px}
+    .topbar nav a{text-decoration:none;color:var(--muted)}
+    .topbar nav a:hover,.crumbs a:hover{color:var(--paper)}
+    .pill{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 18px;border:1px solid var(--accent);border-radius:100px;color:#101714!important;background:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+    .pill:hover{background:#edfbcf}
+    .crumbs{padding:28px 0 0;font-size:13px;color:var(--muted)}
+    .crumbs a{text-decoration:none}
+    .hero{padding:88px 0 100px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:72px;align-items:end}
+    .eyebrow{margin:0 0 23px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:790px;font-size:clamp(52px,6.4vw,104px);line-height:.99;letter-spacing:-.078em;margin-bottom:28px}
+    .lead{max-width:650px;color:#c1cec4;font-size:clamp(19px,2vw,25px);line-height:1.4}
+    .hero-meta{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .price-card{background:#dcedc4;color:#122016;border-radius:26px;padding:32px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .price-card small{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+    .price-card strong{display:block;font-size:clamp(58px,5vw,85px);line-height:1;letter-spacing:-.075em}
+    .price-card p{font-size:15px;line-height:1.45;margin:0;max-width:345px}
+    main section{border-top:1px solid var(--line);padding:88px 0}
+    h2{font-size:clamp(36px,4.3vw,64px);line-height:1.08;letter-spacing:-.065em;max-width:820px;margin-bottom:30px}
+    h3{font-size:25px;line-height:1.2;letter-spacing:-.04em;margin-bottom:12px}
+    .intro{display:grid;grid-template-columns:1fr 1fr;gap:100px}
+    .intro p,.section-intro{color:#c0ccc2;max-width:680px}
+    .section-intro{font-size:20px;margin-bottom:42px}
+    .factors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .factor{background:#17221b;padding:30px;min-height:190px}
+    .factor span{display:block;color:var(--accent);font-size:12px;margin-bottom:25px}
+    .factor p{font-size:16px;color:#b5c2b8;margin:0;max-width:470px}
+    .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:42px}
+    .case{background:#1a261e;border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none}
+    .case img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#243129}
+    .case div{padding:24px 28px 30px}
+    .case small{display:block;color:var(--accent);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .case strong{font-size:25px;line-height:1.2;letter-spacing:-.03em}
+    .case p{margin:13px 0 0;color:#b5c2b8;font-size:15px}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px}
+    .step{padding:26px 24px;border:1px solid var(--line);border-radius:20px;min-height:235px}
+    .step:before{counter-increment:step;content:'0' counter(step);display:block;color:var(--accent);font-size:13px;margin-bottom:38px}
+    .step p{font-size:15px;color:#b5c2b8;margin:0}
+    .note{border-left:3px solid var(--accent);padding:12px 0 12px 25px;font-size:20px;max-width:780px;color:#cfdbd1}
+    .scope-table{width:100%;border-collapse:collapse;margin:30px 0;font-size:16px;table-layout:fixed}
+    .scope-table caption{text-align:left;color:var(--muted);font-size:14px;padding-bottom:16px}
+    .scope-table th,.scope-table td{padding:20px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+    .scope-table thead th{color:var(--accent);font-size:13px}
+    .scope-table tbody th{width:24%;font-weight:700}
+    .scope-table td{color:#c0ccc2}
+    .scope-checklist{padding-left:24px;max-width:820px;color:#c0ccc2}
+    .scope-checklist li{margin:0 0 16px}
+    @media(max-width:600px){.scope-table,.scope-table caption,.scope-table tbody,.scope-table tr,.scope-table td,.scope-table tbody th{display:block;width:100%}.scope-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.scope-table tbody tr{padding:12px 0;border-bottom:1px solid var(--line)}.scope-table tbody th,.scope-table td{padding:9px 0;border:0}.scope-table td:before{content:attr(data-label);display:block;color:var(--accent);font-size:12px;margin-bottom:4px}}
+    .faq{max-width:860px}
+    .faq details{border-bottom:1px solid var(--line);padding:23px 0}
+    .faq summary{cursor:pointer;list-style:none;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-.03em;display:flex;justify-content:space-between;gap:20px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary:after{content:'+';color:var(--accent);font-size:26px;line-height:1}
+    .faq details[open] summary:after{content:'−'}
+    .faq p{color:#b5c2b8;max-width:710px;margin:16px 0 0;font-size:16px}
+    .cta{border-radius:26px;background:#dcedc4;color:#122016;padding:clamp(32px,6vw,80px);display:flex;align-items:end;justify-content:space-between;gap:40px}
+    .cta h2{margin:0;max-width:650px}
+    .cta p{font-size:16px;max-width:360px;margin:15px 0 20px}
+    .cta .pill{background:#14221a;color:#e9eee8!important;border-color:#14221a}
+    footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:50px 0;color:var(--muted);font-size:14px}
+    footer a{text-decoration:none}
+    footer nav{display:flex;gap:20px;flex-wrap:wrap}
+    footer button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0}
+    @media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:36px;padding:65px 0}.price-card{min-height:250px}.intro{grid-template-columns:1fr;gap:10px}.steps{grid-template-columns:repeat(2,1fr)}.cta{display:block}.cta .pill{margin-top:15px}}
+    @media(max-width:600px){.hero>*{min-width:0}.price-card{padding:24px}.price-card strong{font-size:clamp(42px,12vw,65px)}body{font-size:16px}.wrap{width:min(100% - 32px,1200px)}.topbar{min-height:70px}.topbar nav a:not(.pill){display:none}.topbar nav .pill{min-height:38px;padding:8px 13px;font-size:12px}h1{font-size:clamp(44px,11vw,65px)}main section{padding:66px 0}.factors,.case-grid,.steps{grid-template-columns:1fr}.factor,.step{min-height:0}.step:before{margin-bottom:20px}.case img{aspect-ratio:16/9}.cta{border-radius:20px}footer{display:block}footer nav{margin:18px 0}}
+
+.editorial-hero{display:block;padding:75px 0 70px}.editorial-hero h1{max-width:1080px}.editorial-hero .lead{max-width:820px}
+.scenario-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:35px 0 16px;border-radius:22px;overflow:hidden}
+.scenario-flow>div{padding:35px;background:#dcedc4;color:#122016}.scenario-flow span{display:block;font-size:12px;margin-bottom:30px}
+.scenario-flow strong{display:block;font-size:30px;letter-spacing:-.04em}.scenario-flow p{font-size:16px;margin:8px 0 0}
+.caption{font-size:13px;color:#adbcaf;margin-bottom:32px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:35px 0}
+.comparison>div{padding:30px;border:1px solid var(--line);border-radius:22px}li{margin-bottom:14px}.comparison p{font-size:15px;color:#adbcaf}
+.wide-case{display:block;max-width:850px}.brief-list{max-width:820px;padding-left:25px}.brief-list li{padding:10px 0}
+.guide-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{display:block;text-decoration:none;border:1px solid var(--line);padding:35px;border-radius:24px;background:#17221b}
+.guide-card h2{font-size:36px}.guide-card p{color:#b5c2b8;font-size:17px}.guide-card:hover{border-color:var(--accent)}
+.related{display:flex;gap:22px;flex-wrap:wrap}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+@media(max-width:700px){.scenario-flow,.comparison,.guide-list{grid-template-columns:1fr}.editorial-hero{padding:52px 0}.comparison{gap:16px}.guide-card{padding:24px;min-width:0}.guide-card h2{font-size:28px;overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header class="wrap topbar"><a class="brand" href="/" aria-label="BORNLI — главная">BORNLI</a><nav aria-label="Основная навигация"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a class="pill" href="/?service=ai&amp;article=%2Fai-razmetka-fotoarhiva%2F&amp;workflow=custom#contact">Обсудить проект ↗</a></nav></header>
+<div class="wrap crumbs"><a href="/">BORNLI</a> / <a href="/guides/">Материалы</a> / ИИ-разметка фотоархива: теги и проверка | BORNLI</div>
+<main><div class="wrap hero editorial-hero"><p class="eyebrow">BORNLI / о разработке по делу</p><h1>ИИ-разметка фотоархива: от кадра к подборке</h1><p class="lead">Помощник предлагает теги и помогает найти кадр. Редактор уточняет контекст съёмки и передаёт проверенную подборку в рабочую систему.</p>
+<div class="hero-meta">Редакция BORNLI · <time datetime="2026-11-20">2026-11-20</time></div></div>
+
+<section id="fit"><div class="wrap"><h2>Когда стоит автоматизировать разметку фотоархива?</h2>
+<p>ИИ-разметка фотоархива подходит контент-команде, которая регулярно получает новые съёмки, ищет кадры для разных площадок и вручную подписывает одни и те же объекты. Помощник предлагает теги, а редактор проверяет контекст и собирает подборку. Если архив небольшой и нужный файл легко найти по папке и названию, начните с единого порядка хранения.</p>
+<p>В <a href="https://cloudinary.com/customers/fever-labs">публичном кейсе Fever на сайте Cloudinary</a> описан переход от разрозненных дисков к общей системе управления медиа. Среди использованных возможностей — автоматические теги и поиск дубликатов по содержимому. Поставщик сообщает об архиве более 80 тысяч медиафайлов и примерно 10 тысяч новых файлов в месяц. Это масштаб описанного проекта, а не величина экономии от ИИ. Период этих показателей и отдельный замер времени на разметку не раскрыты; страница проверена 20 ноября 2026 года. Кейс опубликован поставщиком и не является независимым аудитом или работой BORNLI.</p>
+<p>Для сети событийных площадок предлагаем более узкую задачу: найти подходящий кадр и передать редактору проверенную подборку. Сам поиск не решает, можно ли публиковать найденное изображение. Тип события, внутреннее согласование и окончательный выпуск должны оставаться отдельными полями и действиями.</p></div></section>
+<section id="input"><div class="wrap"><h2>Что делать с копиями и разными форматами?</h2>
+<p><strong>Концепция BORNLI — модельный сценарий.</strong> Все названия, номера, файлы и состояния ниже условные. Превью зала — иллюстрация для интерфейса, не фотография клиентского проекта. В пакете B-20 есть <code>hall-0441.jpg</code>, его точная копия и <code>stage-plan.pdf</code>. JPEG получает номер A-0441; копия связывается с тем же объектом по совпадению содержимого файла. PDF сохраняется отдельно и остаётся в ручной очереди.</p>
+<p>В этом варианте пилота ИИ размечает только JPEG. Неподдерживаемый формат не нужно считать ошибкой загрузки или незаметно пропускать: сотрудник должен видеть, что с ним делать дальше. Исходники сохраняются. Если два кадра лишь похожи, автоматически объединять их как точную копию нельзя: другой ракурс или редакция могут понадобиться позже.</p>
+<p>До анализа фиксируем источник, идентификатор, версию файла и связь с карточкой съёмки EVT-18. Название площадки или тип события берём из этой карточки. Они не должны появляться из догадки модели по интерьеру.</p>
+<figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/ai-media-tagging-input-20261120.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/ai-media-tagging-input-20261120-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/ai-media-tagging-input-20261120.webp" srcset="/assets/seo/ai-media-tagging-input-20261120.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Три файла одной съёмки — B-20 · до обработки"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. Один JPEG, его точная копия и PDF требуют разных действий.</figcaption></figure></div></section>
+<section id="processing"><div class="wrap"><h2>Какие теги можно поручить модели?</h2>
+<p>На условном кадре видны сцена, стулья и помещение. Эти описания модель предлагает для поиска. Вместе с ними она добавляет «Концерт», хотя пустой зал не подтверждает, какое событие там происходило. Предложение сохраняется как неподтверждённое и показывается рядом с изображением.</p>
+<p>В <a href="https://cloudinary.com/documentation/cloudinary_ai_content_analysis_automatic_tagging">документации Cloudinary AI Content Analysis</a> описаны определение объектов и категорий при загрузке или обновлении, порог для назначения тегов и уведомление о завершении асинхронной обработки. Документация подтверждает технический механизм, но не точность на вашем архиве. Порог модели не заменяет решение редактора.</p>
+<p>Для собственного процесса предлагаем разделить три группы: визуальные признаки, сведения из карточки съёмки и редакционные статусы. У каждого значения хранить происхождение. Тогда сотрудник видит, что «Сцена» предложена ИИ, EVT-18 пришёл из учётной записи, а «Разрешено для подбора» отметил ответственный. В этом пилоте нет распознавания лиц, установления личности или вывода о правах на изображение.</p>
+<figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/ai-media-tagging-processing-20261120.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/ai-media-tagging-processing-20261120-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/ai-media-tagging-processing-20261120.webp" srcset="/assets/seo/ai-media-tagging-processing-20261120.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Теги — пока предложения — A-0441 · требует проверки"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. ИИ предлагает визуальные теги; контекст события ещё не подтверждён.</figcaption></figure></div></section>
+<section id="human-review"><div class="wrap"><h2>Как редактор исправляет контекст?</h2>
+<p>Редактор сверяет A-0441 с карточкой EVT-18 и выбирает «Репетиция» вместо неподтверждённого «Концерт». До сохранения это правка в интерфейсе; после сохранения — версия решения 2 с записью в журнале. Вариант «Нужно уточнить» сохраняет вопрос открытым и блокирует передачу подборки.</p>
+<p>Отдельно сотрудник сверяет внутренний флаг «Разрешено для подбора». Он означает только прохождение принятого в команде редакционного шага. Это не юридическая проверка прав, не согласие изображённого человека и не разрешение публичной публикации. Неизвестный статус нельзя заменять положительным по содержимому кадра.</p>
+<p>Исправленные человеком теги не должны исчезать при повторном анализе. Новая версия файла или карточки отправляется на повторную проверку, если меняет основание решения. Так автоматическая разметка остаётся помощником редактора, а журнал объясняет, почему файл оказался в подборке.</p>
+<figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/ai-media-tagging-human-review-20261120.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/ai-media-tagging-human-review-20261120-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/ai-media-tagging-human-review-20261120.webp" srcset="/assets/seo/ai-media-tagging-human-review-20261120.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Проверить контекст съёмки — Решение редактора · не сохранено"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. Редактор сверяет тип события и внутренний статус, не юридические права.</figcaption></figure></div></section>
+<section id="handoff"><div class="wrap"><h2>Как передать подборку без второй записи?</h2>
+<p>Проверенный A-0441 включаем в подборку COL-20 версии 2. В предлагаемом процессе передаются ссылка на исходник, выбранные теги, версия и внутренний статус; в CMS должен появиться черновик для редактора. Публичный выпуск в этот шаг не входит.</p>
+<p>В модельном исключении ответ CMS потерялся. Интерфейс показывает «Ответ не получен», а новую отправку блокирует до сверки. Сначала проверяем, существует ли запись с ключом COL-20 / v2. Если найден соответствующий черновик PK-204, сохраняем его идентификатор и подтверждаем передачу. Если определить результат нельзя, задача остаётся на разборе: отсутствие ответа не означает, что первая операция не выполнилась.</p>
+<p>На экранах показана локальная демонстрация этой логики. Внешняя CMS не подключена. При внедрении возможность поиска по ключу, защита от повторов и правила обновления версии должны быть согласованы с конкретной рабочей системой и проверены на её ответах.</p>
+<figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/ai-media-tagging-handoff-20261120.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/ai-media-tagging-handoff-20261120-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/ai-media-tagging-handoff-20261120.webp" srcset="/assets/seo/ai-media-tagging-handoff-20261120.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Подборка ждёт подтверждения — COL-20 / v2 · ответ потерян"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. Потеря ответа запускает сверку записи, а не слепую повторную отправку.</figcaption></figure></div></section>
+<section id="outcome"><div class="wrap"><h2>Что считать полезным результатом?</h2>
+<p>В конце модельного сценария поиск «репетиция · сцена» находит A-0441. Один JPEG размечен, точная копия связана с ним, PDF остаётся в ручной очереди. Подборка имеет один подтверждённый черновик PK-204. Это проверяемый результат операции; экономия времени и влияние на выпуск контента не измерялись.</p>
+<p>На пилоте дайте редакторам одинаковые задачи поиска на заранее согласованной части архива. Сравните время до подходящего кадра, число неверных предложений, пропущенных нужных файлов и ручных исправлений. Отдельно проверьте, что поиск не показывает сотруднику закрытые для него материалы и что файл без нужного внутреннего статуса не попадает в переданную подборку.</p>
+<p>Считайте и труд на настройку словаря, проверку тегов и поддержку интеграции. Большое число автоматически заполненных полей само по себе не доказывает пользу. Масштаб архива Fever и результаты вашей команды — разные наблюдения, которые нельзя подменять друг другом.</p>
+<figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/ai-media-tagging-outcome-20261120.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/ai-media-tagging-outcome-20261120-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/ai-media-tagging-outcome-20261120.webp" srcset="/assets/seo/ai-media-tagging-outcome-20261120.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Кадр найден. Источник сохранён. — PK-204 · черновик получен"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. Получен один черновик для редактора. Публичной публикации и замера экономии нет.</figcaption></figure></div></section>
+<section id="pilot"><div class="wrap"><h2>Готовый медиабанк или отдельная автоматизация?</h2>
+<p>Сначала проверьте возможности уже выбранной DAM-системы — программы для хранения и работы с медиафайлами. Если в ней есть подходящий поиск, разметка, версии и согласование, разумнее настроить этот процесс. Собственный модуль имеет смысл, когда нужно связать существующее хранилище, внутреннюю карточку съёмки и конкретную CMS.</p>
+<p>Возможный состав узкого пилота: текущее файловое хранилище, PostgreSQL для идентификаторов и версий метаданных, очередь обработки, согласованная модель распознавания объектов, интерфейс редактора и адаптер CMS. Конкретную модель, место обработки, доступность сервисов в вашем контуре и условия хранения выбираем до внедрения. Cloudinary из внешнего кейса не является обязательным выбором для РФ.</p>
+<p>Начните с одного архива, JPEG, ограниченного словаря и одного получателя подборок. В приёмку включите точную копию, похожий кадр с другим содержимым, неизвестный формат, ошибочный тип события, отсутствующий внутренний статус, отказ модели, изменение источника после проверки и потерянный ответ CMS. Если ИИ временно недоступен, оригинал должен остаться доступным, а разметка — в понятной очереди повтора или ручной работы.</p>
+<p>Для разбора достаточно нескольких разрешённых к передаче файлов, примера карточки съёмки и описания пути от архива до редактора. По ним можно определить границу пилота и критерии приёмки. Если задача связана прежде всего с характеристиками товара, отдельно рассмотрите <a href="/ai-kartochki-tovarov-postavshchika/">подготовку товарных карточек из данных поставщика</a>: там требуется другая проверка источников. Стоимость и сроки AI-автоматизации согласуем после разбора процесса.</p></div></section>
+
+<section><div class="wrap cta"><div><p class="eyebrow" style="color:#33523a">От ручной работы к понятному процессу</p><h2>Разберём один процесс вашего бизнеса.</h2></div><div><p>Опишите, что сотрудники делают вручную и какими системами пользуются. Уточним входные данные, контроль человеком и границы пилота. Состав работ и стоимость согласуем до старта.</p><a class="pill" href="/?service=ai&amp;article=%2Fai-razmetka-fotoarhiva%2F&amp;workflow=custom#contact">Разобрать мой процесс ↗</a></div></div></section>
+</main><footer class="wrap"><a class="brand" href="/">BORNLI</a><nav aria-label="Ссылки внизу страницы"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a href="/privacy.html">Политика</a><button id="analytics-settings" type="button" aria-controls="analytics-consent" aria-expanded="false">Аналитика</button></nav></footer>
+  <aside class="analytics-consent" id="analytics-consent" role="region" aria-label="Настройки аналитики" hidden><strong>Аналитика сайта</strong><p>С вашего согласия подключим Яндекс Метрику, чтобы видеть посещения. Без согласия счётчик не загружается. Выбор можно изменить через «Аналитика» внизу страницы. <a href="/privacy.html">Подробнее</a></p><div class="analytics-actions"><button id="analytics-accept" type="button">Разрешить</button><button id="analytics-decline" type="button">Не разрешать</button></div></aside>
+</body></html>
