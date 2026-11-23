@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поддержка мобильного приложения после запуска | BORNLI</title><meta name="description" content="Как организовать сопровождение приложения: разбор инцидентов, проверка исправлений, наблюдение за обновлением и границы стоимости. Модельный пример повтора загрузки.">
+<meta name="theme-color" content="#101714"><link rel="canonical" href="https://bornli.ru/podderzhka-mobilnogo-prilozheniya/">
+<meta property="og:type" content="article"><meta property="og:title" content="Поддержка мобильного приложения после запуска | BORNLI">
+<meta property="og:description" content="Как организовать сопровождение приложения: разбор инцидентов, проверка исправлений, наблюдение за обновлением и границы стоимости. Модельный пример повтора загрузки."><meta property="og:url" content="https://bornli.ru/podderzhka-mobilnogo-prilozheniya/">
+<meta property="og:image" content="https://bornli.ru/assets/seo/support-incident-20261123.webp"><meta property="og:locale" content="ru_RU">
+<link rel="icon" type="image/png" sizes="120x120" href="https://bornli.ru/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bornli.ru/apple-touch-icon.png">
+<link rel="preload" href="/assets/golos-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/golos-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/analytics.20260924.css"><script src="/analytics.20260924.js?v=ai-context-20261106" defer></script>
+<link rel="stylesheet" href="/assets/seo/editorial-visuals.v1.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://bornli.ru/podderzhka-mobilnogo-prilozheniya/", "url": "https://bornli.ru/podderzhka-mobilnogo-prilozheniya/", "name": "Поддержка мобильного приложения после запуска | BORNLI", "inLanguage": "ru-RU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BORNLI", "item": "https://bornli.ru/"}, {"@type": "ListItem", "position": 2, "name": "Материалы", "item": "https://bornli.ru/guides/"}, {"@type": "ListItem", "position": 3, "name": "Поддержка мобильного приложения после запуска | BORNLI", "item": "https://bornli.ru/podderzhka-mobilnogo-prilozheniya/"}]}, {"@type": "Article", "headline": "Поддержка мобильного приложения после запуска | BORNLI", "datePublished": "2026-11-23", "dateModified": "2026-11-23", "author": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "publisher": {"@type": "Organization", "name": "BORNLI", "url": "https://bornli.ru/"}, "mainEntityOfPage": "https://bornli.ru/podderzhka-mobilnogo-prilozheniya/", "image": "https://bornli.ru/assets/seo/support-incident-20261123.webp"}]}</script>
+<style>
+    @font-face{font-family:Golos;src:url('/assets/golos-regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:Golos;src:url('/assets/golos-bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    :root{color-scheme:dark;--bg:#101714;--paper:#e9eee8;--muted:#abb9ae;--line:#34443a;--accent:#d9f49e}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--paper);font:400 18px/1.6 Golos,Arial,sans-serif}
+    a{color:inherit}
+    .wrap{width:min(1200px,calc(100% - 56px));margin:auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:88px;border-bottom:1px solid var(--line)}
+    .brand{font-size:25px;font-weight:700;letter-spacing:-.09em;text-decoration:none;line-height:1}
+    .topbar nav{display:flex;gap:28px;align-items:center;font-size:14px}
+    .topbar nav a{text-decoration:none;color:var(--muted)}
+    .topbar nav a:hover,.crumbs a:hover{color:var(--paper)}
+    .pill{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 18px;border:1px solid var(--accent);border-radius:100px;color:#101714!important;background:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+    .pill:hover{background:#edfbcf}
+    .crumbs{padding:28px 0 0;font-size:13px;color:var(--muted)}
+    .crumbs a{text-decoration:none}
+    .hero{padding:88px 0 100px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:72px;align-items:end}
+    .eyebrow{margin:0 0 23px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:790px;font-size:clamp(52px,6.4vw,104px);line-height:.99;letter-spacing:-.078em;margin-bottom:28px}
+    .lead{max-width:650px;color:#c1cec4;font-size:clamp(19px,2vw,25px);line-height:1.4}
+    .hero-meta{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .price-card{background:#dcedc4;color:#122016;border-radius:26px;padding:32px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .price-card small{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+    .price-card strong{display:block;font-size:clamp(58px,5vw,85px);line-height:1;letter-spacing:-.075em}
+    .price-card p{font-size:15px;line-height:1.45;margin:0;max-width:345px}
+    main section{border-top:1px solid var(--line);padding:88px 0}
+    h2{font-size:clamp(36px,4.3vw,64px);line-height:1.08;letter-spacing:-.065em;max-width:820px;margin-bottom:30px}
+    h3{font-size:25px;line-height:1.2;letter-spacing:-.04em;margin-bottom:12px}
+    .intro{display:grid;grid-template-columns:1fr 1fr;gap:100px}
+    .intro p,.section-intro{color:#c0ccc2;max-width:680px}
+    .section-intro{font-size:20px;margin-bottom:42px}
+    .factors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .factor{background:#17221b;padding:30px;min-height:190px}
+    .factor span{display:block;color:var(--accent);font-size:12px;margin-bottom:25px}
+    .factor p{font-size:16px;color:#b5c2b8;margin:0;max-width:470px}
+    .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:42px}
+    .case{background:#1a261e;border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none}
+    .case img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#243129}
+    .case div{padding:24px 28px 30px}
+    .case small{display:block;color:var(--accent);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .case strong{font-size:25px;line-height:1.2;letter-spacing:-.03em}
+    .case p{margin:13px 0 0;color:#b5c2b8;font-size:15px}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px}
+    .step{padding:26px 24px;border:1px solid var(--line);border-radius:20px;min-height:235px}
+    .step:before{counter-increment:step;content:'0' counter(step);display:block;color:var(--accent);font-size:13px;margin-bottom:38px}
+    .step p{font-size:15px;color:#b5c2b8;margin:0}
+    .note{border-left:3px solid var(--accent);padding:12px 0 12px 25px;font-size:20px;max-width:780px;color:#cfdbd1}
+    .scope-table{width:100%;border-collapse:collapse;margin:30px 0;font-size:16px;table-layout:fixed}
+    .scope-table caption{text-align:left;color:var(--muted);font-size:14px;padding-bottom:16px}
+    .scope-table th,.scope-table td{padding:20px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+    .scope-table thead th{color:var(--accent);font-size:13px}
+    .scope-table tbody th{width:24%;font-weight:700}
+    .scope-table td{color:#c0ccc2}
+    .scope-checklist{padding-left:24px;max-width:820px;color:#c0ccc2}
+    .scope-checklist li{margin:0 0 16px}
+    @media(max-width:600px){.scope-table,.scope-table caption,.scope-table tbody,.scope-table tr,.scope-table td,.scope-table tbody th{display:block;width:100%}.scope-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.scope-table tbody tr{padding:12px 0;border-bottom:1px solid var(--line)}.scope-table tbody th,.scope-table td{padding:9px 0;border:0}.scope-table td:before{content:attr(data-label);display:block;color:var(--accent);font-size:12px;margin-bottom:4px}}
+    .faq{max-width:860px}
+    .faq details{border-bottom:1px solid var(--line);padding:23px 0}
+    .faq summary{cursor:pointer;list-style:none;font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-.03em;display:flex;justify-content:space-between;gap:20px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary:after{content:'+';color:var(--accent);font-size:26px;line-height:1}
+    .faq details[open] summary:after{content:'−'}
+    .faq p{color:#b5c2b8;max-width:710px;margin:16px 0 0;font-size:16px}
+    .cta{border-radius:26px;background:#dcedc4;color:#122016;padding:clamp(32px,6vw,80px);display:flex;align-items:end;justify-content:space-between;gap:40px}
+    .cta h2{margin:0;max-width:650px}
+    .cta p{font-size:16px;max-width:360px;margin:15px 0 20px}
+    .cta .pill{background:#14221a;color:#e9eee8!important;border-color:#14221a}
+    footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:50px 0;color:var(--muted);font-size:14px}
+    footer a{text-decoration:none}
+    footer nav{display:flex;gap:20px;flex-wrap:wrap}
+    footer button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0}
+    @media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:36px;padding:65px 0}.price-card{min-height:250px}.intro{grid-template-columns:1fr;gap:10px}.steps{grid-template-columns:repeat(2,1fr)}.cta{display:block}.cta .pill{margin-top:15px}}
+    @media(max-width:600px){.hero>*{min-width:0}.price-card{padding:24px}.price-card strong{font-size:clamp(42px,12vw,65px)}body{font-size:16px}.wrap{width:min(100% - 32px,1200px)}.topbar{min-height:70px}.topbar nav a:not(.pill){display:none}.topbar nav .pill{min-height:38px;padding:8px 13px;font-size:12px}h1{font-size:clamp(44px,11vw,65px)}main section{padding:66px 0}.factors,.case-grid,.steps{grid-template-columns:1fr}.factor,.step{min-height:0}.step:before{margin-bottom:20px}.case img{aspect-ratio:16/9}.cta{border-radius:20px}footer{display:block}footer nav{margin:18px 0}}
+
+.editorial-hero{display:block;padding:75px 0 70px}.editorial-hero h1{max-width:1080px}.editorial-hero .lead{max-width:820px}
+.scenario-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:35px 0 16px;border-radius:22px;overflow:hidden}
+.scenario-flow>div{padding:35px;background:#dcedc4;color:#122016}.scenario-flow span{display:block;font-size:12px;margin-bottom:30px}
+.scenario-flow strong{display:block;font-size:30px;letter-spacing:-.04em}.scenario-flow p{font-size:16px;margin:8px 0 0}
+.caption{font-size:13px;color:#adbcaf;margin-bottom:32px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:35px 0}
+.comparison>div{padding:30px;border:1px solid var(--line);border-radius:22px}li{margin-bottom:14px}.comparison p{font-size:15px;color:#adbcaf}
+.wide-case{display:block;max-width:850px}.brief-list{max-width:820px;padding-left:25px}.brief-list li{padding:10px 0}
+.guide-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.guide-card{display:block;text-decoration:none;border:1px solid var(--line);padding:35px;border-radius:24px;background:#17221b}
+.guide-card h2{font-size:36px}.guide-card p{color:#b5c2b8;font-size:17px}.guide-card:hover{border-color:var(--accent)}
+.related{display:flex;gap:22px;flex-wrap:wrap}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+@media(max-width:700px){.scenario-flow,.comparison,.guide-list{grid-template-columns:1fr}.editorial-hero{padding:52px 0}.comparison{gap:16px}.guide-card{padding:24px;min-width:0}.guide-card h2{font-size:28px;overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header class="wrap topbar"><a class="brand" href="/" aria-label="BORNLI — главная">BORNLI</a><nav aria-label="Основная навигация"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a class="pill" href="/?service=app&amp;article=%2Fpodderzhka-mobilnogo-prilozheniya%2F#contact">Обсудить проект ↗</a></nav></header>
+<div class="wrap crumbs"><a href="/">BORNLI</a> / <a href="/guides/">Материалы</a> / Поддержка мобильного приложения после запуска | BORNLI</div>
+<main><div class="wrap hero editorial-hero"><p class="eyebrow">BORNLI / о разработке по делу</p><h1>Поддержка мобильного приложения после запуска</h1><p class="lead">Поддержка приложения начинается с конкретного сбоя и заканчивается проверенным восстановлением рабочего сценария. Для этого нужны версия, диагностические данные, ограниченный объём исправления и наблюдение после выпуска.</p>
+<div class="hero-meta">Редакция BORNLI · <time datetime="2026-11-23">2026-11-23</time></div></div>
+
+<section id="answer"><div class="wrap intro"><div><p class="eyebrow">Приложение уже работает</p><h2>Поддержка должна возвращать рабочий сценарий.</h2></div><div><p>Поддержка мобильного приложения после запуска — это разбор сбоев, проверка исправлений и наблюдение за обновлениями. Полезный результат обращения: понятно, что нарушено, какая версия исправлена, как её проверили и что остаётся сделать для пользователей. Ответ «разработчик посмотрит» этого не заменяет.</p><p>Разделите сопровождение действующего продукта и новые функции. Если сотрудник перестал отправлять фотографии из существующей заявки, это инцидент. Если бизнес хочет добавить распознавание деталей на фото, это отдельная задача развития. Для неё нужны свои требования и оценка.</p><p>До первого выпуска используйте <a href="/priemka-mobilnogo-prilozheniya/">план приёмки приложения</a>. Здесь разберём работу после запуска, когда у пользователей уже могут быть разные версии. Сквозной пример — модельный сценарий выездного сервиса с потерянным ответом при загрузке фото; это концепция BORNLI, а не клиентский результат.</p></div></div></section>
+<section id="incident"><div class="wrap"><p class="eyebrow">Разбор обращения</p><h2>«Не работает» нужно превратить в проверяемое событие.</h2><p class="section-intro">Начните с того, какую работу человек не может закончить. Затем сохраните контекст, который позволит отличить ошибку приложения от недоступной сети, отказа внешнего сервиса или поведения старой версии.</p><ol class="brief-list"><li><strong>Действие и результат:</strong> что нажали, что ожидали, что увидели. Приложите короткую запись экрана или обезличенный снимок.</li><li><strong>Версия и среда:</strong> номер приложения и сборки, устройство, ОС, условия связи. Время события запишите с часовым поясом.</li><li><strong>След операции:</strong> номер заявки или диагностический идентификатор, если он есть. Пароли, токены и полные клиентские данные в первичном сообщении не нужны.</li><li><strong>Влияние:</strong> остановилась обязательная работа или есть проверенный обходной путь; затронут один известный случай или масштаб пока не установлен.</li><li><strong>Следующий шаг:</strong> кто ведёт инцидент и когда будет следующее сообщение. Срок первой реакции и срок устранения согласуйте отдельно.</li></ol><h3>Модельный инцидент INC-042</h3><p>В заявке R-381 сотрудник отправляет фото из сборки 2.4.1 (241) на Android 14. Сервер уже сохранил вложение ATT-381, но ответ не дошёл до телефона. На экране остаётся ожидание. Второе сообщение о том же событии привязывается к INC-042: новая жалоба не должна автоматически становиться новой задачей с другой историей.</p><figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/support-incident-20261123.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/support-incident-20261123-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/support-incident-20261123.webp" srcset="/assets/seo/support-incident-20261123.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Фото есть, ответа нет — Воспроизведено"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. Карточка связывает симптом с конкретной версией и не выдаёт обращение за установленную причину.</figcaption></figure><p>Потерянный ответ — установленное условие нашего примера. В настоящем обращении это сначала гипотеза: её проверяют по журналам и воспроизведению. Не обещайте человеку «просто нажать ещё раз», пока неизвестно, не создаст ли повтор вторую запись.</p></div></section>
+<section id="handover"><div class="wrap"><p class="eyebrow">Принять приложение на сопровождение</p><h2>Проверьте, что исправление можно собрать и выпустить.</h2><p>Для приложения, сделанного другой командой, сначала проведите ограниченное обследование. Наличие архива с кодом ещё не подтверждает, что из него получается текущая опубликованная версия. Полезный итог обследования — воспроизводимая сборка либо конкретный список препятствий.</p><div class="comparison"><div><h3>Что нужно установить</h3><ul><li>Где исходники и какая версия соответствует публикации.</li><li>Как собрать и проверить приложение; какие зависимости и среды нужны.</li><li>Кому принадлежат сервер, домен, магазины приложений и связанные сервисы.</li><li>Где доступны журналы ошибок и кто получает уведомления.</li></ul></div><div><h3>Что записать в результат</h3><ul><li>Получилось ли воспроизвести сборку и проблемный сценарий.</li><li>Какие доступы и материалы отсутствуют; кто их предоставляет.</li><li>Что входит в ближайшее исправление и что вынесено за его пределы.</li><li>Как проверяется обновление и кто принимает решение о выпуске.</li></ul></div></div><p>Не начинайте с обещания исправить всё за фиксированное число часов. Если нет доступа к серверной части, нельзя уверенно оценить изменение её поведения. Зафиксируйте ограничение и следующий проверяемый шаг.</p></div></section>
+<section id="fix"><div class="wrap"><p class="eyebrow">Исправление конкретной операции</p><h2>Проверьте повтор после неопределённого исхода.</h2><p>В модельном исправлении 2.4.2 (242) загрузка получает устойчивый идентификатор REQ-381. Если ответ потерялся, приложение сохраняет идентификатор и повторяет запрос с ним. Серверная сторона модели возвращает уже созданное ATT-381. В заявке остаётся одно вложение, а телефон получает подтверждение.</p><figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/support-fix-20261123.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/support-fix-20261123-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/support-fix-20261123.webp" srcset="/assets/seo/support-fix-20261123.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Повтор без второго фото — Ответ не получен"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. В исправленной модели повтор сохраняет ID операции и получает подтверждение существующего вложения.</figcaption></figure><p>В рабочем проекте такой механизм зависит от API и хранения результата на сервере. Нельзя обеспечить отсутствие дублей только надписью «Повторить» или блокировкой кнопки. Проверьте совместно клиент и сервер: первый запрос, потерю ответа, повтор того же запроса и обращение после перезапуска приложения.</p><p>К карточке исправления приложите номер новой сборки, условия проверки, полученный результат и оставшиеся ограничения. Отдельно проверьте соседние сценарии, которые затронул фикс: обычную загрузку, отказ сервера и восстановление связи. Новые функции в аварийный выпуск добавляйте только после отдельного решения — иначе увеличится объём проверки.</p></div></section>
+<section id="release"><div class="wrap"><p class="eyebrow">После обновления</p><h2>У пользователей ещё могут оставаться старые версии.</h2><p>Опубликованное исправление не означает, что каждый пользователь уже его установил. В отчёте сопровождения разделяйте события 2.4.1 и 2.4.2. Старое сообщение не подтверждает повтор ошибки в новой сборке; пустая сводка новой версии не подтверждает стабильность.</p><p><a href="https://firebase.google.com/docs/release/release-monitoring" target="_blank" rel="noopener">Firebase Release Monitoring</a> позволяет наблюдать последний мобильный релиз, распространение версии, новые ошибки и сравнение с предыдущими сборками. Для появления данных есть требования к SDK и активности пользователей. Если сводка ещё недоступна, запишите это прямо и используйте доступные обращения и проверки, сохраняя границы вывода.</p><h3>Пауза распространения — отдельное решение</h3><p>В <a href="https://support.google.com/googleplay/android-developer/answer/6346149?hl=en" target="_blank" rel="noopener">Google Play остановка поэтапного обновления</a> прекращает выдачу этой версии дополнительным пользователям. Уже получившие её остаются на ней. Поэтому для них всё ещё нужен план: исправленная сборка или проверенное временное действие.</p><p>У Apple <a href="https://developer.apple.com/help/app-store-connect/update-your-app/release-a-version-update-in-phases/" target="_blank" rel="noopener">phased release</a> распределяет автоматические обновления постепенно за семь дней, но любой пользователь может скачать обновление вручную. Такой выпуск нельзя считать закрытой тестовой группой. План наблюдения должен учитывать правила выбранного магазина.</p><figure class="wrap editorial-visual">
+<a class="editorial-visual-link" href="/assets/seo/support-observe-20261123.webp" target="_blank" rel="noopener" aria-label="Открыть концепцию интерфейса в полном размере">
+<picture><source media="(max-width: 700px)" srcset="/assets/seo/support-observe-20261123-768.webp 768w" sizes="calc(100vw - 32px)">
+<img src="/assets/seo/support-observe-20261123.webp" srcset="/assets/seo/support-observe-20261123.webp 1200w" sizes="(max-width: 1232px) calc(100vw - 48px), 1184px" width="1200" height="800" loading="lazy" decoding="async" alt="Версии смотрим отдельно — Решение ожидается"></picture>
+<span class="editorial-visual-zoom" aria-hidden="true">Рассмотреть дизайн ↗</span></a>
+<figcaption>Концепция BORNLI, модельный сценарий. Отчёт старой версии не превращается в сбой новой; при неизвестных данных расширение не считается разрешённым.</figcaption></figure><p>В нашем модельном кабинете новое сообщение относится к 2.4.1, а для 2.4.2 данных пока недостаточно. Ответственный фиксирует решение не расширять выдачу. Запись решения и реальное действие в магазине — разные шаги: исполнение нужно подтвердить отдельно. Инцидент пока остаётся под наблюдением.</p></div></section>
+<section id="scope"><div class="wrap"><p class="eyebrow">Объём и стоимость</p><h2>Покупайте понятный режим сопровождения.</h2><p>Стоимость поддержки зависит от состояния приложения, числа платформ и интеграций, доступности диагностики, согласованных часов связи и объёма изменений. До обследования полезнее определить ближайший результат работ, чем сравнивать абонентские суммы без состава услуги.</p><ol class="brief-list"><li><strong>Диагностика:</strong> ограниченный разбор одного сценария; на выходе воспроизведение, гипотеза причины, препятствия и оценка следующего шага.</li><li><strong>Исправление:</strong> конкретное изменение, сборка, перечень проверок и условия выпуска. Изменение объёма согласуется отдельно.</li><li><strong>Регулярное сопровождение:</strong> каналы связи, часы обслуживания, категории обращений, порядок реакции, доступный объём работ и формат отчёта.</li><li><strong>Отдельные расходы:</strong> инфраструктура, сторонние сервисы и развитие продукта. Укажите, что включено, а что оплачивается отдельно.</li></ol><p>Обещание ответа в определённое время не равно гарантии устранить любой сбой за тот же срок. Условия должны различать первичную реакцию, диагностический вывод, временный обход и окончательное исправление. Круглосуточный режим также нужно согласовать явно.</p><p>Разработка новой функции оценивается как изменение продукта. О том, из чего складывается её объём, читайте в <a href="/stoimost-mobilnogo-prilozheniya/">разборе стоимости приложения</a>.</p></div></section>
+<section id="closure"><div class="wrap"><p class="eyebrow">Проверяемый итог</p><h2>Закрывайте инцидент с коротким отчётом.</h2><p>Хороший отчёт отвечает на пять вопросов: какой сценарий был нарушен; что изменили; в какой сборке и условиях проверили; что наблюдали после выпуска; что осталось сделать. В нём есть ссылка на обращение, номер версии и ответственный за следующий шаг.</p><p>Для INC-042 результат модельной проверки сформулирован узко: повтор REQ-381 подтвердил существующее ATT-381 и не создал второе вложение. Это ещё не итог наблюдения за настоящим релизом. Старую версию и недостаток данных нельзя скрыть за статусом «готово».</p><p><a href="/?service=app&amp;article=%2Fpodderzhka-mobilnogo-prilozheniya%2F#contact">Обсудить сопровождение приложения с BORNLI</a> можно с описания одного сбоя, платформы и текущей версии. Обсуждение можно начать с ограниченной диагностики: какие сведения уже есть, что нужно проверить и какой результат позволит оценить исправление.</p></div></section>
+
+<section><div class="wrap cta"><div><p class="eyebrow" style="color:#33523a">От идеи к конкретике</p><h2>Покажем, как может работать ваш продукт.</h2></div><div><p>Обсудим задачу и материалы, затем подготовим бесплатный кликабельный прототип за 24 часа. До договора.</p><a class="pill" href="/?service=app&amp;article=%2Fpodderzhka-mobilnogo-prilozheniya%2F#contact">Обсудить прототип ↗</a></div></div></section>
+</main><footer class="wrap"><a class="brand" href="/">BORNLI</a><nav aria-label="Ссылки внизу страницы"><a href="/guides/">Материалы</a><a href="/stoimost-mobilnogo-prilozheniya/">Стоимость</a><a href="/privacy.html">Политика</a><button id="analytics-settings" type="button" aria-controls="analytics-consent" aria-expanded="false">Аналитика</button></nav></footer>
+  <aside class="analytics-consent" id="analytics-consent" role="region" aria-label="Настройки аналитики" hidden><strong>Аналитика сайта</strong><p>С вашего согласия подключим Яндекс Метрику, чтобы видеть посещения. Без согласия счётчик не загружается. Выбор можно изменить через «Аналитика» внизу страницы. <a href="/privacy.html">Подробнее</a></p><div class="analytics-actions"><button id="analytics-accept" type="button">Разрешить</button><button id="analytics-decline" type="button">Не разрешать</button></div></aside>
+</body></html>
